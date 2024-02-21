@@ -10,8 +10,58 @@ local function get_git_diff()
 end
 
 return {
-  -- Import the copilot plugin
-  { import = "lazyvim.plugins.extras.coding.copilot" },
+  -- copilot
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    opts = {
+      suggestion = { enabled = false },
+      panel = { enabled = false },
+      filetypes = {
+        markdown = true,
+        help = true,
+      },
+    },
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    optional = true,
+    event = "VeryLazy",
+    opts = function(_, opts)
+      local Util = require("lazyvim.util")
+      local colors = {
+        [""] = Util.ui.fg("Special"),
+        ["Normal"] = Util.ui.fg("Special"),
+        ["Warning"] = Util.ui.fg("DiagnosticError"),
+        ["InProgress"] = Util.ui.fg("DiagnosticWarn"),
+      }
+      table.insert(opts.sections.lualine_x, 2, {
+        function()
+          local icon = require("lazyvim.config").icons.kinds.Copilot
+          local status = require("copilot.api").status.data
+          return icon .. (status.message or "")
+        end,
+        cond = function()
+          if not package.loaded["copilot"] then
+            return
+          end
+          local ok, clients = pcall(require("lazyvim.util").lsp.get_clients, { name = "copilot", bufnr = 0 })
+          if not ok then
+            return false
+          end
+          return ok and #clients > 0
+        end,
+        color = function()
+          if not package.loaded["copilot"] then
+            return
+          end
+          local status = require("copilot.api").status.data
+          return colors[status.status] or colors[""]
+        end,
+      })
+    end,
+  },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = {
@@ -69,18 +119,18 @@ return {
         desc = "CopilotChat - Prompt actions",
       },
       -- Code related commands
-      { "<leader>cce", "<cmd>CopilotChatExplain<cr>",       desc = "CopilotChat - Explain code" },
-      { "<leader>cct", "<cmd>CopilotChatTests<cr>",         desc = "CopilotChat - Generate tests" },
-      { "<leader>ccr", "<cmd>CopilotChatReview<cr>",        desc = "CopilotChat - Review code" },
-      { "<leader>ccR", "<cmd>CopilotChatRefactor<cr>",      desc = "CopilotChat - Refactor code" },
-      { "<leader>ccf", "<cmd>CopilotChatFixCode<cr>",       desc = "CopilotChat - Fix code" },
+      { "<leader>cce", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
+      { "<leader>cct", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Generate tests" },
+      { "<leader>ccr", "<cmd>CopilotChatReview<cr>", desc = "CopilotChat - Review code" },
+      { "<leader>ccR", "<cmd>CopilotChatRefactor<cr>", desc = "CopilotChat - Refactor code" },
+      { "<leader>ccf", "<cmd>CopilotChatFixCode<cr>", desc = "CopilotChat - Fix code" },
       { "<leader>ccb", "<cmd>CopilotChatBetterNamings<cr>", desc = "CopilotChat - Better Name" },
-      { "<leader>cc'", "<cmd>CopilotChatDocString<cr>",     desc = "CopilotChat - Add simple docstring for code." },
+      { "<leader>cc'", "<cmd>CopilotChatDocString<cr>", desc = "CopilotChat - Add simple docstring for code." },
       -- Text related commands
-      { "<leader>ccs", "<cmd>CopilotChatSummarize<cr>",     desc = "CopilotChat - Summarize text" },
-      { "<leader>ccS", "<cmd>CopilotChatSpelling<cr>",      desc = "CopilotChat - Correct spelling" },
-      { "<leader>ccw", "<cmd>CopilotChatWording<cr>",       desc = "CopilotChat - Improve wording" },
-      { "<leader>ccc", "<cmd>CopilotChatConcise<cr>",       desc = "CopilotChat - Make text concise" },
+      { "<leader>ccs", "<cmd>CopilotChatSummarize<cr>", desc = "CopilotChat - Summarize text" },
+      { "<leader>ccS", "<cmd>CopilotChatSpelling<cr>", desc = "CopilotChat - Correct spelling" },
+      { "<leader>ccw", "<cmd>CopilotChatWording<cr>", desc = "CopilotChat - Improve wording" },
+      { "<leader>ccc", "<cmd>CopilotChatConcise<cr>", desc = "CopilotChat - Make text concise" },
       -- Chat with Copilot in visual mode
       {
         "<leader>ccv",
@@ -131,13 +181,13 @@ return {
         desc = "CopilotChat - Quick chat",
       },
       -- Debug
-      { "<leader>ccd", "<cmd>CopilotChatDebugInfo<cr>",     desc = "CopilotChat - Debug Info" },
+      { "<leader>ccd", "<cmd>CopilotChatDebugInfo<cr>", desc = "CopilotChat - Debug Info" },
       -- Fix the issue with diagnostic
       { "<leader>ccf", "<cmd>CopilotChatFixDiagnostic<cr>", desc = "CopilotChat - Fix Diagnostic" },
       -- Clear buffer and chat history
-      { "<leader>ccl", "<cmd>CopilotChatReset<cr>",         desc = "CopilotChat - Clear buffer and chat history" },
+      { "<leader>ccl", "<cmd>CopilotChatReset<cr>", desc = "CopilotChat - Clear buffer and chat history" },
       -- Toggle Copilot Chat Vsplit
-      { "<leader>ccv", "<cmd>CopilotChatVsplitToggle<cr>",  desc = "CopilotChat - Toggle Vsplit" },
+      { "<leader>ccv", "<cmd>CopilotChatVsplitToggle<cr>", desc = "CopilotChat - Toggle Vsplit" },
     },
   },
 }
