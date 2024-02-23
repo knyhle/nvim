@@ -9,3 +9,5 @@ else
   -- Set Python host for Unix-based systems
   vim.g.python3_host_prog = "~/.pyenv/versions/nvim/bin/python"
 end
+
+vim.opt.guicursor = { "n-v-i-c:block", "ci-ve:ver25", "r-cr:hor20", "o:hor50", "a:blinkon100" }
