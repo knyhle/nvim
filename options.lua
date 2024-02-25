@@ -1,6 +1,3 @@
--- set map leader
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
 
 if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
   -- Set Python host for Windows
@@ -12,6 +9,8 @@ end
 
 vim.opt.guicursor = { "n-v-i-c:block", "ci-ve:ver25", "r-cr:hor20", "o:hor50", "a:blinkon100" }
 vim.g.autoformat = true
+vim.o.hlsearch = false
+vim.o.breakindent = true
 
 local opt = vim.opt
 
@@ -47,10 +46,10 @@ opt.splitbelow = true -- Put new windows below current
 opt.splitkeep = "screen"
 opt.splitright = true -- Put new windows right of current
 opt.termguicolors = true -- True color support
-opt.timeoutlen = 300
 opt.undofile = true
 opt.undolevels = 10000
 opt.updatetime = 200 -- Save swap file and trigger CursorHold
+opt.timeoutlen = 300
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
