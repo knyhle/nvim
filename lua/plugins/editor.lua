@@ -9,8 +9,22 @@ return {
                 transparent_background = true,
                 term_colors = true,
                 no_italic = true,
-                no_bold = false, -- Force no bold
-                no_underline = false, -- Force no underline
+                no_bold = true, -- Force no bold
+                no_underline = true, -- Force no underline
+                integrations = {
+                    cmp = true,
+                    gitsigns = true,
+                    treesitter = true,
+                    fidget = true,
+                    flash = true,
+                    harpoon = true,
+                    native_lsp = {
+                        enabled = true,
+                        inlay_hints = {
+                            background = true,
+                        },
+                    },
+                }
             })
 
             vim.cmd.colorscheme "catppuccin"
@@ -110,5 +124,50 @@ return {
             'rafamadriz/friendly-snippets',
         },
     },
+    {
+        "folke/flash.nvim",
+        event = "VeryLazy",
+        vscode = true,
+        opts = {},
+        -- stylua: ignore
+        keys = {
+            { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+            { "S",     mode = { "n", "o", "x" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+            { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+            { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+            { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+        },
+    },
+    {
+        "ThePrimeagen/harpoon",
+        event = "BufEnter",
+        branch = "harpoon2",
+        dependencies = {
+            { "nvim-lua/plenary.nvim" },
+        },
+        config = function()
+            local status_ok, harpoon = pcall(require, "harpoon")
+            if not status_ok then
+                return
+            end
 
+            harpoon.setup()
+
+            vim.keymap.set("n", "<leader>fm", "<cmd>Telescope harpoon marks<cr>", { desc = "Telescope Harpoon Marks" })
+            vim.keymap.set("n", "<leader>ha", function() harpoon:list():append() end)
+            vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+
+            vim.keymap.set("n", "<leader>hh", function() harpoon:list():select(1) end)
+            vim.keymap.set("n", "<leader>ht", function() harpoon:list():select(2) end)
+            vim.keymap.set("n", "<leader>hn", function() harpoon:list():select(3) end)
+            vim.keymap.set("n", "<leader>hs", function() harpoon:list():select(4) end)
+
+            local tele_status_ok, telescope = pcall(require, "telescope")
+            if not tele_status_ok then
+                return
+            end
+
+            telescope.load_extension("harpoon")
+        end,
+    },
 }
