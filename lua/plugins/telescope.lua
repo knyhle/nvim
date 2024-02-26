@@ -10,5 +10,6 @@ return {
   keys = {
     -- change a keymap
     { "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+    { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Find Keymaps" },
   },
 }
