@@ -7,14 +7,13 @@ return {
       },
       presets = {
         bottom_search = true,
-        command_palette = true,
+        command_palette = false,
         lsp_doc_border = true,
       },
     },
   },
   {
     "rcarriga/nvim-notify",
-    enabled = false,
     opts = {
       render = "compact",
       stages = "static",

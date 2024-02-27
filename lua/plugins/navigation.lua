@@ -28,7 +28,7 @@ return {
         },
       })
       vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-      end,
+    end,
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -82,16 +82,16 @@ return {
         harpoon.ui:toggle_quick_menu(harpoon:list())
       end)
 
-      vim.keymap.set("n", "<leader>hh", function()
+      vim.keymap.set("n", "<leader>eh", function()
         harpoon:list():select(1)
       end)
-      vim.keymap.set("n", "<leader>ht", function()
+      vim.keymap.set("n", "<leader>et", function()
         harpoon:list():select(2)
       end)
-      vim.keymap.set("n", "<leader>hn", function()
+      vim.keymap.set("n", "<leader>en", function()
         harpoon:list():select(3)
       end)
-      vim.keymap.set("n", "<leader>hs", function()
+      vim.keymap.set("n", "<leader>es", function()
         harpoon:list():select(4)
       end)
 
