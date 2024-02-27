@@ -53,9 +53,21 @@ vim.opt.splitbelow = true
 -- Sets how neovim will display certain whitespace in the editor.
 --  See :help 'list'
 --  and :help 'listchars'
-
 vim.opt.list = true
--- vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { tab = "  ", trail = " ", nbsp = " " }
+
+vim.opt.pumblend = 10 -- Popup blend
+vim.opt.pumheight = 10 -- Maximum number of entries in a popup
+
+vim.opt.fillchars = {
+	foldopen = "",
+	foldclose = "",
+	-- fold = "⸱",
+	fold = " ",
+	foldsep = " ",
+	diff = "╱",
+	eob = " ",
+}
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "split"
@@ -71,11 +83,11 @@ vim.opt.guicursor = ""
 
 -- [[ Basic Keymaps ]]
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
-vim.opt.hlsearch = true
+vim.opt.hlsearch = false
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
-vim.keymap.set("n", ";", ":", { desc = "Command" })
-vim.keymap.set("n", ":", ";", { desc = "Command" })
+-- vim.keymap.set("n", ";", ":", { desc = "Command" })
+-- vim.keymap.set("n", ":", ";", { desc = "Command" })
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
@@ -638,7 +650,7 @@ require("lazy").setup({
 			-- Simple and easy statusline.
 			--  You could remove this setup call if you don't like it,
 			--  and try some other statusline plugin
-			require("mini.statusline").setup()
+			-- require("mini.statusline").setup()
 
 			-- ... and there is more!
 			--  Check out: https://github.com/echasnovski/mini.nvim
