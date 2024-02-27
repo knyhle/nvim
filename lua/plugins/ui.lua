@@ -2,15 +2,19 @@ return {
   {
     "folke/noice.nvim",
     opts = {
+      cmdline = {
+        view = "cmdline",
+      },
       presets = {
         bottom_search = true,
-        command_palette = false,
+        command_palette = true,
         lsp_doc_border = true,
       },
     },
   },
   {
     "rcarriga/nvim-notify",
+    enabled = false,
     opts = {
       render = "compact",
       stages = "static",
@@ -18,12 +22,12 @@ return {
       top_down = false,
     },
   },
-  {
-    "j-hui/fidget.nvim",
-    opts = {
-      -- options
-    },
-  },
+  -- {
+  --   "j-hui/fidget.nvim",
+  --   opts = {
+  --     -- options
+  --   },
+  -- },
   {
     "folke/edgy.nvim",
     opts = {
