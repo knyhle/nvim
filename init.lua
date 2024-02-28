@@ -35,6 +35,9 @@ vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+
 vim.opt.completeopt = "menu,menuone,noselect"
 
 -- Keep signcolumn on by default
@@ -770,6 +773,8 @@ require("lazy").setup({
 			})
 		end,
 	},
+
+  {  import = "custom.plugins" }
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
