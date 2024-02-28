@@ -256,6 +256,57 @@ require("lazy").setup({
 	},
 
 	{
+		"alexghergh/nvim-tmux-navigation",
+		config = function()
+			local nvim_tmux_nav = require("nvim-tmux-navigation")
+			nvim_tmux_nav.setup({
+				disable_when_zoomed = true, -- defaults to false
+			})
+
+			vim.keymap.set("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft, { desc = "Tmux Navigate Left" })
+			vim.keymap.set("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown, { desc = "Tmux Navigate Down" })
+			vim.keymap.set("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp, { desc = "Tmux Navigate Up" })
+			vim.keymap.set("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight, { desc = "Tmux Navigate Right" })
+		end,
+	},
+	{
+		"ThePrimeagen/harpoon",
+		event = "BufRead",
+		branch = "harpoon2",
+		dependencies = {
+			{ "nvim-lua/plenary.nvim" },
+		},
+		config = function()
+			local status_ok, harpoon = pcall(require, "harpoon")
+			if not status_ok then
+				return
+			end
+
+			harpoon.setup()
+
+			vim.keymap.set("n", "<leader>a", function()
+				harpoon:list():append()
+			end)
+			vim.keymap.set("n", "<C-e>", function()
+				harpoon.ui:toggle_quick_menu(harpoon:list())
+			end)
+
+			vim.keymap.set("n", "<leader>eh", function()
+				harpoon:list():select(1)
+			end)
+			vim.keymap.set("n", "<leader>et", function()
+				harpoon:list():select(2)
+			end)
+			vim.keymap.set("n", "<leader>en", function()
+				harpoon:list():select(3)
+			end)
+			vim.keymap.set("n", "<leader>es", function()
+				harpoon:list():select(4)
+			end)
+		end,
+	},
+
+	{
 		"nvim-telescope/telescope.nvim",
 		event = "VeryLazy",
 		branch = "0.1.x",
@@ -622,22 +673,6 @@ require("lazy").setup({
 	-- Highlight todo, notes, etc in comments
 	{ "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = { signs = false } },
 
-	-- { -- Useful plugin to show you pending keybinds.
-	-- 	"folke/which-key.nvim",
-	-- 	event = "VeryLazy", -- Sets the loading event to 'VeryLazy'
-	-- 	config = function() -- This is the function that runs, AFTER loading
-	-- 		require("which-key").setup()
-	--
-	-- 		-- Document existing key chains
-	-- 		require("which-key").register({
-	-- 			["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
-	-- 			["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
-	-- 			["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
-	-- 			["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
-	-- 		})
-	-- 	end,
-	-- },
-
 	{ -- Collection of various small independent plugins/modules
 		"echasnovski/mini.nvim",
 
@@ -648,7 +683,19 @@ require("lazy").setup({
 			--  - va)  - [V]isually select [A]round [)]parenthen
 			--  - yinq - [Y]ank [I]nside [N]ext [']quote
 			--  - ci'  - [C]hange [I]nside [']quote
-			-- require("mini.ai").setup({ n_lines = 500 })
+			local ai = require("mini.ai")
+			require("mini.ai").setup({
+				n_lines = 500,
+				custom_textobjects = {
+					o = ai.gen_spec.treesitter({
+						a = { "@block.outer", "@conditional.outer", "@loop.outer" },
+						i = { "@block.inner", "@conditional.inner", "@loop.inner" },
+					}, {}),
+					f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }, {}),
+					c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }, {}),
+					t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" },
+				},
+			})
 
 			-- Add/delete/replace surroundings (brackets, quotes, etc.)
 			--
