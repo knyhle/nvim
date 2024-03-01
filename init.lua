@@ -60,16 +60,6 @@ vim.opt.listchars = { tab = "  ", trail = " ", nbsp = " " }
 vim.opt.pumblend = 10 -- Popup blend
 vim.opt.pumheight = 10 -- Maximum number of entries in a popup
 
-vim.opt.fillchars = {
-	foldopen = "",
-	foldclose = "",
-	-- fold = "⸱",
-	fold = " ",
-	foldsep = " ",
-	diff = "╱",
-	eob = " ",
-}
-
 if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
 	-- Set Python host for Windows
 	vim.g.python3_host_prog = "~/.pyenv-win-venv/envs/nvim/Scripts/python.exe"
@@ -82,7 +72,7 @@ end
 vim.opt.inccommand = "split"
 
 -- Show which line your cursor is on
--- vim.opt.cursorline = true
+vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
@@ -94,9 +84,6 @@ vim.opt.guicursor = { "n-v-i-c:block", "ci-ve:ver25", "r-cr:hor20", "o:hor50", "
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = false
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-
--- vim.keymap.set("n", ";", ":", { desc = "Command" })
--- vim.keymap.set("n", ":", ";", { desc = "Command" })
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
@@ -149,16 +136,10 @@ vim.keymap.set(
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
 vim.keymap.set("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next search result" })
-vim.keymap.set("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
-vim.keymap.set("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
-vim.keymap.set("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev search result" })
-vim.keymap.set("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
-vim.keymap.set("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
+vim.keymap.set({ "x", "o" }, "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
 
--- Add undo break-points
-vim.keymap.set("i", ",", ",<c-g>u")
-vim.keymap.set("i", ".", ".<c-g>u")
-vim.keymap.set("i", ";", ";<c-g>u")
+vim.keymap.set("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev search result" })
+vim.keymap.set({ "x", "o" }, "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 
 -- better indenting
 vim.keymap.set("v", "<", "<gv")
@@ -190,6 +171,15 @@ vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
 require("lazy").setup({
+	-- {
+	-- 	"navarasu/onedark.nvim",
+	-- 	config = function()
+	-- 		require("onedark").setup({
+	-- 			style = "cool",
+	-- 		})
+	-- 		require("onedark").load()
+	-- 	end,
+	-- },
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
@@ -202,12 +192,6 @@ require("lazy").setup({
 				no_italic = true,
 				no_bold = true, -- Force no bold
 				no_underline = true, -- Force no underline
-				integrations = {
-					treesitter = true,
-					treesitter_context = true,
-					flash = true,
-					harpoon = true,
-				},
 			})
 			vim.cmd.colorscheme("catppuccin")
 		end,
@@ -282,7 +266,7 @@ require("lazy").setup({
 	},
 	{
 		"ThePrimeagen/harpoon",
-		event = "VimEnter",
+		event = "BufEnter",
 		branch = "harpoon2",
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" },
@@ -353,7 +337,6 @@ require("lazy").setup({
 
 			-- See `:help telescope.builtin`
 			local builtin = require("telescope.builtin")
-			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 			vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 			-- vim.keymap.set("n", "<C-p>", builtin.find_files, { desc = "[S]earch [F]iles" })
 			vim.keymap.set("n", "<C-p>", function()
@@ -363,11 +346,9 @@ require("lazy").setup({
 				}))
 			end, { desc = "[S]earch [F]iles" })
 
-			-- vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
 			vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 			vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 			vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-			-- vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
 			vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 			vim.keymap.set(
 				"n",
@@ -522,7 +503,9 @@ require("lazy").setup({
 								-- If lua_ls is really slow on your computer, you can try this instead:
 								-- library = { vim.env.VIMRUNTIME },
 							},
-
+							completion = {
+								callSnippet = "Replace",
+							},
 							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
 							-- diagnostics = { disable = { 'missing-fields' } },
 						},
@@ -545,21 +528,16 @@ require("lazy").setup({
 				"stylua", -- Used to format lua code
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+
 			require("mason-lspconfig").setup({
 				handlers = {
 					function(server_name)
 						local server = servers[server_name] or {}
-
-						require("lspconfig")[server_name].setup({
-							cmd = server.cmd,
-							settings = server.settings,
-							filetypes = server.filetypes,
-
-							-- This handles overriding only values explicitly passed
-							-- by the server configuration above. Useful when disabling
-							-- certain features of an LSP (for example, turning off formatting for tsserver)
-							capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {}),
-						})
+						-- This handles overriding only values explicitly passed
+						-- by the server configuration above. Useful when disabling
+						-- certain features of an LSP (for example, turning off formatting for tsserver)
+						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+						require("lspconfig")[server_name].setup(server)
 					end,
 				},
 			})
@@ -639,7 +617,7 @@ require("lazy").setup({
 					["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
 					["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
 
-					["<TAB>"] = cmp.mapping(function(fallback)
+					["<C-y>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							-- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
 							-- cmp.select_next_item()
@@ -648,15 +626,6 @@ require("lazy").setup({
 						-- this way you will only jump inside the snippet region
 						elseif luasnip.expand_or_locally_jumpable() then
 							luasnip.expand_or_jump()
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-					["<S-Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_prev_item()
-						elseif luasnip.jumpable(-1) then
-							luasnip.jump(-1)
 						else
 							fallback()
 						end
@@ -674,22 +643,6 @@ require("lazy").setup({
 				}),
 			})
 		end,
-	},
-
-	-- Flash enhances the built-in search functionality by showing labels
-	-- at the end of each match, letting you quickly jump to a specific
-	-- location.
-	{
-		"folke/flash.nvim",
-		event = "VeryLazy",
-		vscode = true,
-		---@type Flash.Config
-		opts = {},
-    -- stylua: ignore
-    keys = {
-      { "<leader>f", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      { "<leader>F", mode = { "n", "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-    },
 	},
 
 	-- Highlight todo, notes, etc in comments
@@ -737,7 +690,7 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		dependencies = {
-			{ "nvim-treesitter/nvim-treesitter-textobjects" },
+			-- { "nvim-treesitter/nvim-treesitter-textobjects" },
 		},
 		textobjects = {
 			move = {
@@ -778,4 +731,4 @@ require("lazy").setup({
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
--
+--
