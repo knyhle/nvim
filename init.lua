@@ -92,9 +92,6 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagn
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 --  See `:help wincmd` for a list of all window commands
@@ -171,15 +168,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
 require("lazy").setup({
-	-- {
-	-- 	"navarasu/onedark.nvim",
-	-- 	config = function()
-	-- 		require("onedark").setup({
-	-- 			style = "cool",
-	-- 		})
-	-- 		require("onedark").load()
-	-- 	end,
-	-- },
+	-- [[ Colorscheme ]]
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
@@ -197,12 +186,75 @@ require("lazy").setup({
 		end,
 	},
 
+	-- [[ Treesitter ]]
+	{ -- Highlight, edit, and navigate code
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			{ "nvim-treesitter/nvim-treesitter-textobjects" },
+		},
+		textobjects = {
+			move = {
+				enable = true,
+				goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer" },
+				goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer" },
+				goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer" },
+				goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer" },
+			},
+			select = {
+				enable = true,
+				lookahead = true,
+				keymaps = {
+					["af"] = "@function.outer",
+					["if"] = "@function.inner",
+					["ac"] = "@class.outer",
+					["ic"] = "@class.inner",
+				},
+			},
+		},
+		config = function()
+			-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+			---@diagnostic disable-next-line: missing-fields
+			require("nvim-treesitter.configs").setup({
+				ensure_installed = {
+					"bash",
+					"diff",
+					"c",
+					"html",
+					"lua",
+					"luadoc",
+					"luap",
+					"markdown",
+					"vim",
+					"vimdoc",
+					"python",
+					"go",
+				},
+				incremental_selection = {
+					enable = true,
+					keymaps = {
+						init_selection = "<C-space>",
+						node_incremental = "<C-space>",
+						scope_incremental = false,
+						node_decremental = "<BS>",
+					},
+				},
+				-- Autoinstall languages that are not installed
+				auto_install = true,
+				highlight = { enable = true },
+				indent = { enable = true },
+			})
+		end,
+	},
 	-- [[ Plugin Specs list ]]
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
+	-- [[ Comment ]]
 	-- "gc" to comment visual regions/lines
 	{ "numToStr/Comment.nvim", opts = {} },
 
+	-- [[ Git ]]
 	-- Here is a more advanced example where we pass configuration
 	-- options to `gitsigns.nvim`. This is equivalent to the following lua:
 	--    require('gitsigns').setup({ ... })
@@ -221,6 +273,7 @@ require("lazy").setup({
 		},
 	},
 
+	-- [[ File Explorer ]]
 	{
 		"stevearc/oil.nvim",
 		opts = {},
@@ -250,6 +303,7 @@ require("lazy").setup({
 		end,
 	},
 
+	-- [[ Tmux Navigation ]]
 	{
 		"alexghergh/nvim-tmux-navigation",
 		config = function()
@@ -264,6 +318,7 @@ require("lazy").setup({
 			vim.keymap.set("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight, { desc = "Tmux Navigate Right" })
 		end,
 	},
+	-- [[ Harpoon ]]
 	{
 		"ThePrimeagen/harpoon",
 		event = "BufEnter",
@@ -301,6 +356,7 @@ require("lazy").setup({
 		end,
 	},
 
+	-- [[ Telescope ]]
 	{
 		"nvim-telescope/telescope.nvim",
 		event = "VeryLazy",
@@ -374,6 +430,7 @@ require("lazy").setup({
 		end,
 	},
 
+	-- [[ LSP ]]
 	{ -- LSP Configuration & Plugins
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -544,6 +601,7 @@ require("lazy").setup({
 		end,
 	},
 
+	-- [[ Autoformat ]]
 	{ -- Autoformat
 		"stevearc/conform.nvim",
 		opts = {
@@ -565,7 +623,8 @@ require("lazy").setup({
 		},
 	},
 
-	{ -- Autocompletion
+	-- [[ Autocompletion ]]
+	{
 		"hrsh7th/nvim-cmp",
 		version = false, -- last release is way too old
 		event = "InsertEnter",
@@ -645,9 +704,11 @@ require("lazy").setup({
 		end,
 	},
 
+	-- [[ Hightlights ]]
 	-- Highlight todo, notes, etc in comments
 	{ "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = { signs = false } },
 
+	-- [[ Mini Plugins ]]
 	{ -- Collection of various small independent plugins/modules
 		"echasnovski/mini.nvim",
 
@@ -683,47 +744,6 @@ require("lazy").setup({
 			--  You could remove this setup call if you don't like it,
 			--  and try some other statusline plugin
 			require("mini.statusline").setup()
-		end,
-	},
-
-	{ -- Highlight, edit, and navigate code
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-		dependencies = {
-			-- { "nvim-treesitter/nvim-treesitter-textobjects" },
-		},
-		textobjects = {
-			move = {
-				enable = true,
-				goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer" },
-				goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer" },
-				goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer" },
-				goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer" },
-			},
-		},
-		config = function()
-			-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-			---@diagnostic disable-next-line: missing-fields
-			require("nvim-treesitter.configs").setup({
-				ensure_installed = {
-					"bash",
-					"diff",
-					"c",
-					"html",
-					"lua",
-					"luadoc",
-					"luap",
-					"markdown",
-					"vim",
-					"vimdoc",
-					"python",
-					"go",
-				},
-				-- Autoinstall languages that are not installed
-				auto_install = true,
-				highlight = { enable = true },
-				indent = { enable = true },
-			})
 		end,
 	},
 
