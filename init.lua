@@ -748,6 +748,9 @@ require("lazy").setup({
 	},
 
 	{ import = "custom.plugins" },
+}, {
+	checker = { enabled = true, notify = false },
+	change_detection = { enabled = false },
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
