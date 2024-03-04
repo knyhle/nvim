@@ -1,4 +1,10 @@
 return {
+	-- [[ Plugin Specs list ]]
+	{ "tpope/vim-sleuth" }, -- Detect tabstop and shiftwidth automatically
+
+	-- [[ Comment ]]
+	-- "gc" to comment visual regions/lines
+	{ "numToStr/Comment.nvim", opts = {} },
 	-- search/replace in multiple files
 	{
 		"nvim-pack/nvim-spectre",
@@ -41,4 +47,8 @@ return {
 			},
 		},
 	},
+
+	-- [[ Hightlights ]]
+	-- Highlight todo, notes, etc in comments
+	{ "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = { signs = false } },
 }
