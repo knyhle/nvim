@@ -79,6 +79,14 @@ return {
 			vim.keymap.set("n", "<leader>es", function()
 				harpoon:list():select(4)
 			end)
+
+			-- Toggle previous & next buffers stored within Harpoon list
+			vim.keymap.set("n", "<S-h>", function()
+				harpoon:list():prev()
+			end)
+			vim.keymap.set("n", "<S-l>", function()
+				harpoon:list():next()
+			end)
 		end,
 	},
 }
