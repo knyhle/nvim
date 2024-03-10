@@ -98,3 +98,7 @@ vim.opt.guicursor = { "n-v-i-c:block", "ci-ve:ver25", "r-cr:hor20", "o:hor50", "
 -- [[ Basic Keymaps ]]
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = false
+
+if vim.fn.has("nvim-0.10") == 1 then
+	vim.opt.smoothscroll = true
+end
