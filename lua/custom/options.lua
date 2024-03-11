@@ -59,7 +59,7 @@ vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.signcolumn = "yes"
 
 -- Decrease update time
-vim.opt.updatetime = 200
+vim.opt.updatetime = 750
 vim.opt.timeoutlen = 300
 
 -- Configure how new splits should be opened
