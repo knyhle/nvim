@@ -10,7 +10,7 @@ return {
 			--  - va)  - [V]isually select [A]round [)]parenthen
 			--  - yinq - [Y]ank [I]nside [N]ext [']quote
 			--  - ci'  - [C]hange [I]nside [']quote
-			require("mini.ai").setup()
+			-- require("mini.ai").setup()
 
 			-- Add/delete/replace surroundings (brackets, quotes, etc.)
 			--
