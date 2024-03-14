@@ -1,12 +1,17 @@
 return {
 	{
 		"ibhagwan/fzf-lua",
+		opts = {
+			files = {
+				previewer = false, -- Disable preview for find_files
+			},
+		},
 		-- optional for icon support
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = function()
+		config = function(_, opts)
 			-- calling `setup` is optional for customization
-			require("fzf-lua").setup({})
-			vim.keymap.set("n", "<c-P>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
+			require("fzf-lua").setup(opts)
+			vim.keymap.set("n", "<C-p>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
 		end,
 	},
 }
