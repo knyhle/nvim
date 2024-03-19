@@ -77,3 +77,5 @@ vim.keymap.set("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" 
 
 vim.keymap.set("n", "s", "<Nop>")
 vim.keymap.set("n", "S", "<Nop>")
+
+vim.keymap.set("n", "<leader>x", "<Nop>")
