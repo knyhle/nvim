@@ -79,6 +79,16 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	end,
 })
 
+-- Auto create dir when saving a file, in case some intermediate directory does not exist
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+	group = augroup("auto_remove_ctrl_m_and_whitespace"),
+	pattern = "*",
+	callback = function()
+		vim.cmd("%s/\\r//ge")
+		vim.cmd("%s/^s+//e")
+	end,
+})
+
 -- Copy/Paste when using ssh on a remote server
 -- Only works on Neovim >= 0.10.0
 if vim.clipboard and vim.clipboard.osc52 then
