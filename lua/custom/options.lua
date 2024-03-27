@@ -70,7 +70,7 @@ vim.opt.splitbelow = true
 --  See :help 'list'
 --  and :help 'listchars'
 vim.opt.list = true
-vim.opt.listchars = { tab = "  ", trail = " ", nbsp = " " }
+-- vim.opt.listchars = { tab = "  ", trail = " ", nbsp = " " }
 
 vim.opt.pumblend = 10 -- Popup blend
 vim.opt.pumheight = 10 -- Maximum number of entries in a popup
