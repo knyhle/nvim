@@ -25,15 +25,6 @@ vim.keymap.set({ "n", "v", "x" }, ":", ";")
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>")
 vim.keymap.set({ "n", "x" }, "<leader>p", '"_dP', { desc = "Paste without overwriting clipboard" })
 
-function JumpAndCenter()
-	local char = vim.fn.nr2char(vim.fn.getchar())
-	vim.cmd("normal! '" .. char)
-	vim.cmd("normal! zz")
-end
-
-vim.api.nvim_set_keymap("n", "'", ":lua JumpAndCenter()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "`", ":lua JumpAndCenter()<CR>", { noremap = true, silent = true })
-
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up" })
 

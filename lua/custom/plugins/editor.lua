@@ -4,7 +4,7 @@ return {
 
 	-- [[ Comment ]]
 	-- "gc" to comment visual regions/lines
-	{ "numToStr/Comment.nvim", opts = {} },
+	-- { "numToStr/Comment.nvim", opts = {} },
 	-- search/replace in multiple files
 	{
 		"nvim-pack/nvim-spectre",
