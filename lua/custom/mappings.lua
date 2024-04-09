@@ -25,8 +25,8 @@ vim.keymap.set({ "n", "v", "x" }, ":", ";")
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>")
 vim.keymap.set({ "n", "x" }, "<leader>p", '"_dP', { desc = "Paste without overwriting clipboard" })
 
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down" })
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up" })
+-- vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down" })
+-- vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up" })
 
 -- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua
