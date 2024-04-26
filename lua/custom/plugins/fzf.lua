@@ -11,7 +11,7 @@ return {
 		config = function(_, opts)
 			-- calling `setup` is optional for customization
 			require("fzf-lua").setup(opts)
-			vim.keymap.set("n", "<C-p>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
+			vim.keymap.set("n", "<C-p>", "<cmd>lua require('fzf-lua').git_files()<CR>", { silent = true })
 		end,
 	},
 }
