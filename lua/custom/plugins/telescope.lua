@@ -29,7 +29,14 @@ return {
 		config = function()
 			-- [[ Configure Telescope ]]
 			-- See `:help telescope` and `:help telescope.setup()`
-			require("telescope").setup({})
+			require("telescope").setup({
+				pickers = {
+					git_files = {
+						theme = "dropdown",
+						previewer = false,
+					},
+				},
+			})
 
 			-- Enable telescope extensions, if they are installed
 			pcall(require("telescope").load_extension, "fzf")
@@ -45,14 +52,9 @@ return {
 			-- 	}))
 			-- end, { desc = "[S]earch [F]iles" })
 
-			vim.keymap.set("n", "<C-.>", function()
-				builtin.find_files(require("telescope.themes").get_dropdown({
-					prompt_title = "Find Directories",
-					winblend = 10,
-					previewer = false,
-					find_command = { "fd", "--type", "d" },
-				}))
-			end, { desc = "[S]earch Directories" })
+			vim.keymap.set("n", "<C-p>", function()
+				builtin.git_files()
+			end, { desc = "Search Git Files" })
 
 			vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 			vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
@@ -69,10 +71,7 @@ return {
 			-- Slightly advanced example of overriding default behavior and theme
 			vim.keymap.set("n", "<leader>sb", function()
 				-- You can pass additional cobfiguration to telescope to change theme, layout, etc.
-				builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-					winblend = 10,
-					previewer = false,
-				}))
+				builtin.current_buffer_fuzzy_find()
 			end, { desc = "[/] Fuzzily search in current buffer" })
 
 			-- Shortcut for searching your neovim configuration files
