@@ -13,7 +13,7 @@ return {
 					["g?"] = "actions.show_help",
 					["<CR>"] = "actions.select",
 					["<C-c>"] = "actions.close",
-					["<C-l>"] = "actions.refresh",
+					["<leader>r"] = "actions.refresh",
 					["-"] = "actions.parent",
 					["_"] = "actions.open_cwd",
 					["`"] = "actions.cd",
