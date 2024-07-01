@@ -70,7 +70,7 @@ vim.opt.splitbelow = true
 --  See :help 'list'
 --  and :help 'listchars'
 vim.opt.list = true
--- vim.opt.listchars = { tab = "  ", trail = " ", nbsp = " " }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 vim.opt.pumblend = 10 -- Popup blend
 vim.opt.pumheight = 10 -- Maximum number of entries in a popup
@@ -91,6 +91,4 @@ vim.opt.guicursor = { "n-v-i-c:block", "ci-ve:ver25", "r-cr:hor20", "o:hor50", "
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = false
 
-if vim.fn.has("nvim-0.10") == 1 then
-	vim.opt.smoothscroll = true
-end
+vim.opt.smoothscroll = true
