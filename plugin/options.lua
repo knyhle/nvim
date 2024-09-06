@@ -46,3 +46,4 @@ opt.formatoptions = "jcroqlnt" -- tcqj
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
 opt.jumpoptions = "view"
+opt.shortmess:append({ W = true, I = true, c = true, C = true })
