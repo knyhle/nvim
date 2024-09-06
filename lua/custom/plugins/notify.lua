@@ -11,7 +11,7 @@ return {
 	},
 	opts = {
 		stages = "static",
-		-- top_down = false,
+		top_down = false,
 		render = "compact",
 		timeout = 3000,
 		max_height = function()
