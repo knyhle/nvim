@@ -4,7 +4,7 @@
 -- mini.animate will also be disabled.
 vim.g.bigfile_size = 1024 * 1024 * 1.5 -- 1.5 MB
 
-vim.cmd.colorscheme("catppuccin-mocha")
+vim.cmd.colorscheme "catppuccin-mocha"
 vim.opt.guicursor = { "n-v-i-c:block", "ci-ve:ver25", "r-cr:hor20", "o:hor50", "a:blinkon100" }
 
 -- [[ Setting options ]]
@@ -17,7 +17,7 @@ opt.relativenumber = true
 opt.mouse = "a"
 opt.showmode = false
 vim.schedule(function()
-	opt.clipboard = "unnamedplus"
+  opt.clipboard = "unnamedplus"
 end)
 opt.breakindent = true
 opt.undofile = true
@@ -46,6 +46,6 @@ opt.formatoptions = "jcroqlnt" -- tcqj
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
 opt.jumpoptions = "view"
-opt.shortmess:append({ W = true, I = true, c = true, C = true })
+opt.shortmess:append { W = true, I = true, c = true, C = true }
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full" -- Command-line completion mode

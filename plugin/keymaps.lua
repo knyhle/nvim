@@ -1,9 +1,9 @@
 local map = vim.keymap.set
 local fn = function(f, ...)
-	local args = { ... }
-	return function(...)
-		return f(unpack(args), ...)
-	end
+  local args = { ... }
+  return function(...)
+    return f(unpack(args), ...)
+  end
 end
 
 -- [[ Basic Keymaps ]]
@@ -42,10 +42,10 @@ map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 -- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua
 map(
-	"n",
-	"<leader>ur",
-	"<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
-	{ desc = "Redraw / Clear hlsearch / Diff Update" }
+  "n",
+  "<leader>ur",
+  "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
+  { desc = "Redraw / Clear hlsearch / Diff Update" }
 )
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
