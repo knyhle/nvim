@@ -16,6 +16,7 @@ local servers = {
   -- But for many setups, the LSP (`tsserver`) will work just fine
   -- tsserver = {},
   --
+  taplo = {},
   ruff = {
     cmd_env = { RUFF_TRACE = "messages" },
     init_options = {

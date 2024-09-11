@@ -1,17 +1,21 @@
+vim.cmd.colorscheme "catppuccin-macchiato"
+-- vim.cmd.colorscheme "catppuccin-mocha"
+
 -- Set filetype to `bigfile` for files larger than 1.5 MB
 -- Only vim syntax will be enabled (with the correct filetype)
 -- LSP, treesitter and other ft plugins will be disabled.
 -- mini.animate will also be disabled.
 vim.g.bigfile_size = 1024 * 1024 * 1.5 -- 1.5 MB
 
-vim.cmd.colorscheme "catppuccin-mocha"
-vim.opt.guicursor = { "n-v-i-c:block", "ci-ve:ver25", "r-cr:hor20", "o:hor50", "a:blinkon100" }
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 local opt = vim.opt
 
 opt.autowrite = true
+opt.guicursor = { "n-v-i-c:block", "ci-ve:ver25", "r-cr:hor20", "o:hor50", "a:blinkon100" }
+opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 opt.colorcolumn = "88"
 opt.number = true
 opt.relativenumber = true
@@ -51,3 +55,5 @@ opt.jumpoptions = "view"
 opt.shortmess:append { W = true, I = true, c = true, C = true }
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full" -- Command-line completion mode
+opt.autoread = true
+opt.swapfile = false
