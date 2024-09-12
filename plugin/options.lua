@@ -11,6 +11,7 @@ vim.opt.guicursor = { "n-v-i-c:block", "ci-ve:ver25", "r-cr:hor20", "o:hor50", "
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 local opt = vim.opt
 
+opt.autowrite = true
 opt.colorcolumn = "88"
 opt.number = true
 opt.relativenumber = true
@@ -36,6 +37,7 @@ opt.cursorline = true
 opt.scrolloff = 10
 opt.tabstop = 4
 opt.shiftwidth = 4
+opt.expandtab = true
 opt.smartindent = true
 opt.smartcase = true
 opt.splitkeep = "screen"
