@@ -1,10 +1,4 @@
 local map = vim.keymap.set
-local fn = function(f, ...)
-  local args = { ... }
-  return function(...)
-    return f(unpack(args), ...)
-  end
-end
 
 -- [[ Basic Keymaps ]]
 -- Clear search with <esc>
@@ -20,10 +14,12 @@ map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 map("n", "s", "<nop>")
 map("n", "<leader>x", "<nop>")
 
--- There are builtin keymaps for this now, but I like that it shows
--- the float when I navigate to the error - so I override them.
-map("n", "]d", fn(vim.diagnostic.jump, { count = 1, float = true }))
-map("n", "[d", fn(vim.diagnostic.jump, { count = -1, float = true }))
+map("n", "]d", function()
+  vim.diagnostic.goto_next { float = true }
+end)
+map("n", "[d", function()
+  vim.diagnostic.goto_prev { float = true }
+end)
 
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
