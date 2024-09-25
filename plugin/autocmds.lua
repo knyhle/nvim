@@ -5,14 +5,14 @@ end
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking (copying) text",
-  group = augroup "highlight-yank",
+  group = augroup "highlight_yank",
   callback = function()
     vim.highlight.on_yank()
   end,
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  group = augroup "format-options",
+  group = augroup "format_options",
   pattern = { "*" },
   callback = function()
     -- Don't have `o` add a comment
@@ -22,13 +22,20 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  group = augroup "remove-carriage-returns",
+  group = augroup "clean_buffer_on_save",
   pattern = { "*" },
   callback = function()
     -- Save the current cursor position
     local cursor_pos = vim.fn.getcurpos()
+
     -- Remove carriage returns
     vim.cmd [[%s/\r//ge]]
+
+    -- Remove trailing whitespace if not markdown
+    if vim.bo.filetype ~= "markdown" then
+      vim.cmd [[%s/\s\+$//e]]
+    end
+
     -- Restore the cursor position
     vim.fn.setpos(".", cursor_pos)
   end,
