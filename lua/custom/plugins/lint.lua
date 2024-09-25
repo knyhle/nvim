@@ -7,6 +7,7 @@ return {
       lint.linters_by_ft = {
         markdown = { "markdownlint" },
         dockerfile = { "hadolint" },
+        python = { "ruff" },
       }
 
       -- Create autocommand which carries out the actual linting

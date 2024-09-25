@@ -130,13 +130,13 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "ModeChanged", "TextChanged" }, {
-  group = augroup "autosave",
-  desc = "autosave",
-  pattern = "*",
-  command = "silent! update",
-})
-
+-- vim.api.nvim_create_autocmd({ "ModeChanged", "TextChanged" }, {
+--   group = augroup "autosave",
+--   desc = "autosave",
+--   pattern = "*",
+--   command = "silent! update",
+-- })
+--
 vim.api.nvim_create_autocmd({ "FileType" }, {
   group = augroup "qf_navigation",
   pattern = "qf",
