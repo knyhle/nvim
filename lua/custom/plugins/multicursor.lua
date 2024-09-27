@@ -6,14 +6,6 @@ return {
 
     mc.setup()
 
-    -- Add cursors above/below the main cursor.
-    vim.keymap.set({ "n", "v" }, "<up>", function()
-      mc.addCursor "k"
-    end)
-    vim.keymap.set({ "n", "v" }, "<down>", function()
-      mc.addCursor "j"
-    end)
-
     -- Add a cursor and jump to the next word under cursor.
     vim.keymap.set({ "n", "v" }, "<c-n>", function()
       mc.addCursor "*"
@@ -52,6 +44,17 @@ return {
       else
         vim.cmd "nohlsearch"
         return "<Esc>"
+      end
+    end)
+
+    vim.keymap.set("n", "<C-c>", function()
+      if not mc.cursorsEnabled() then
+        mc.enableCursors()
+      elseif mc.hasCursors() then
+        mc.clearCursors()
+      else
+        vim.cmd "nohlsearch"
+        return "<C-c>"
       end
     end)
 
