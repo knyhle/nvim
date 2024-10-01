@@ -35,6 +35,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-cmdline",
   },
   config = function()
     -- See `:help cmp`
@@ -42,18 +43,39 @@ return {
     local luasnip = require "luasnip"
     luasnip.config.setup {}
 
+    -- `/` cmdline setup.
+    cmp.setup.cmdline({ "/", "?" }, {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = "buffer" },
+      },
+    })
+
+    -- `:` cmdline setup.
+    -- cmp.setup.cmdline(":", {
+    --   mapping = cmp.mapping.preset.cmdline(),
+    --   sources = cmp.config.sources(
+    --     { { name = "path" } },
+    --     { { name = "cmdline", option = { ignore_cmds = { "Man", "!" } } } }
+    --   ),
+    -- })
+
     cmp.setup {
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
       },
-      completion = { completeopt = "menu,menuone,noinsert,neselect" },
+      completion = {
+        autocomplete = false,
+        completeopt = "menu,menuone,noinsert,neselect",
+      },
       window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
       },
       mapping = cmp.mapping.preset.insert {
+        ["<C-Space>"] = cmp.mapping.complete(),
         -- Select the [n]ext item
         ["<C-n>"] = cmp.mapping.select_next_item(),
         -- Select the [p]revious item
@@ -69,7 +91,7 @@ return {
         -- Manually trigger a completion from nvim-cmp.
         --  Generally you don't need this, because nvim-cmp will display
         --  completions whenever it has completion options available.
-        ["<C-Space>"] = cmp.mapping.complete {},
+        -- ["<C-Space>"] = cmp.mapping.complete {},
 
         ["<C-l>"] = cmp.mapping(function()
           if luasnip.expand_or_locally_jumpable() then
