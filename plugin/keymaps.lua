@@ -2,7 +2,8 @@ local map = vim.keymap.set
 
 -- [[ Basic Keymaps ]]
 -- Clear search with <esc>
--- map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
+map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
+map({ "i", "n" }, "<C-c>", "<cmd>noh<cr><C-c>", { desc = "Escape and Clear hlsearch" })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
