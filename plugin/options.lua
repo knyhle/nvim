@@ -1,5 +1,5 @@
-vim.cmd.colorscheme "catppuccin-macchiato"
--- vim.cmd.colorscheme "catppuccin-mocha"
+-- vim.cmd.colorscheme "catppuccin-macchiato"
+vim.cmd.colorscheme "catppuccin-mocha"
 
 -- Set filetype to `bigfile` for files larger than 1.5 MB
 -- Only vim syntax will be enabled (with the correct filetype)
@@ -14,16 +14,16 @@ vim.g.have_nerd_font = true
 local opt = vim.opt
 
 opt.autowrite = true
-opt.guicursor = { "n-v-i-c:block", "ci-ve:ver25", "r-cr:hor20", "o:hor50", "a:blinkon100" }
+opt.guicursor = ""
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 opt.colorcolumn = "88"
 opt.number = true
 opt.relativenumber = true
 opt.mouse = "a"
 opt.showmode = false
-vim.schedule(function()
-  opt.clipboard = "unnamedplus"
-end)
+-- vim.schedule(function()
+opt.clipboard = "unnamedplus"
+-- end)
 opt.breakindent = true
 opt.undofile = true
 opt.ignorecase = true
