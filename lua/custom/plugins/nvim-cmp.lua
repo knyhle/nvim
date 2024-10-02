@@ -67,7 +67,7 @@ return {
         end,
       },
       completion = {
-        autocomplete = false,
+        -- autocomplete = false,
         completeopt = "menu,menuone,noinsert,neselect",
       },
       window = {
