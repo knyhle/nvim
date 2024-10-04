@@ -37,7 +37,10 @@ return { -- Fuzzy Finder (files, lsp, etc)
       --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
       --   },
       -- },
-      -- pickers = {}
+      pickers = {
+        git_files = { previewer = false },
+        find_files = { previewer = false },
+      },
       extensions = {
         ["ui-select"] = {
           require("telescope.themes").get_dropdown(),
@@ -83,10 +86,5 @@ return { -- Fuzzy Finder (files, lsp, etc)
         prompt_title = "Live Grep in Open Files",
       }
     end, { desc = "[S]earch [/] in Open Files" })
-
-    -- Shortcut for searching your Neovim configuration files
-    vim.keymap.set("n", "<leader>sn", function()
-      builtin.find_files { cwd = vim.fn.stdpath "config" }
-    end, { desc = "[S]earch [N]eovim files" })
   end,
 }
