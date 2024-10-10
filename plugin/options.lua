@@ -1,12 +1,6 @@
 -- vim.cmd.colorscheme "catppuccin-macchiato"
 vim.cmd.colorscheme "catppuccin-mocha"
 
--- Set filetype to `bigfile` for files larger than 1.5 MB
--- Only vim syntax will be enabled (with the correct filetype)
--- LSP, treesitter and other ft plugins will be disabled.
--- mini.animate will also be disabled.
-vim.g.bigfile_size = 1024 * 1024 * 1.5 -- 1.5 MB
-
 vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]

@@ -90,15 +90,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- Fix conceallevel for json files
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  group = augroup "json_conceal",
-  pattern = { "json", "jsonc", "json5" },
-  callback = function()
-    vim.opt_local.conceallevel = 0
-  end,
-})
-
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   group = augroup "auto_create_dir",
@@ -111,39 +102,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end,
 })
 
-vim.filetype.add {
-  pattern = {
-    [".*"] = {
-      function(path, buf)
-        return vim.bo[buf]
-            and vim.bo[buf].filetype ~= "bigfile"
-            and path
-            and vim.fn.getfsize(path) > vim.g.bigfile_size
-            and "bigfile"
-          or nil
-      end,
-    },
-  },
-}
-
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  group = augroup "bigfile",
-  pattern = "bigfile",
-  callback = function(ev)
-    vim.b.minianimate_disable = true
-    vim.schedule(function()
-      vim.bo[ev.buf].syntax = vim.filetype.match { buf = ev.buf } or ""
-    end)
-  end,
-})
-
--- vim.api.nvim_create_autocmd({ "ModeChanged", "TextChanged" }, {
---   group = augroup "autosave",
---   desc = "autosave",
---   pattern = "*",
---   command = "silent! update",
--- })
---
 vim.api.nvim_create_autocmd({ "FileType" }, {
   group = augroup "qf_navigation",
   pattern = "qf",
@@ -151,5 +109,28 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     local opts = { buffer = event.buf, silent = true }
     vim.keymap.set("n", "<C-n>", "<cmd>cn | wincmd p<CR>", opts)
     vim.keymap.set("n", "<C-p>", "<cmd>cN | wincmd p<CR>", opts)
+  end,
+})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = augroup "kickstart-lsp-attach",
+  callback = function(event)
+    local map = function(keys, func, desc, mode)
+      mode = mode or "n"
+      vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+    end
+
+    -- map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+    map("gd", function()
+      vim.lsp.buf.definition()
+    end, "[G]oto [D]efinition")
+    map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+    map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+    -- map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+    map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+    map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+    map("<leader>cr", vim.lsp.buf.rename, "[C]ode [R]ename")
+    map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
+    map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
   end,
 })
