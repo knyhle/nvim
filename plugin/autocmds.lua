@@ -120,6 +120,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
     end
 
+    -- vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help(), { buffer = event.buf, desc = "LSP: " .. desc })
+
+    -- vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help(), { buffer = event.buf, desc = "LSP: " .. desc })
+    map("C-s", function()
+      vim.lsp.buf.signature_help()
+    end, "[S]ignature Help", "i")
     -- map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
     map("gd", function()
       vim.lsp.buf.definition()

@@ -13,6 +13,7 @@ map({ "i", "n" }, "<C-c>", "<cmd>noh<cr><C-c>", { desc = "Escape and Clear hlsea
 map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 map("n", "s", "<nop>")
+map("n", "S", "<nop>")
 map("n", "<leader>x", "<nop>")
 
 map("n", "]d", function()
@@ -62,6 +63,8 @@ map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Commen
 -- map("n", "<M-x>", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 -- map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
 -- map("n", "<leader>xc", "<cmd>copen<cr>", { desc = "Quickfix List" })
+vim.keymap.set("n", "<C-n>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-p>", "<cmd>cprev<CR>zz")
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 
 -- tabs
