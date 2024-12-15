@@ -23,6 +23,6 @@ return {
       },
     }
 
-    vim.keymap.set("n", "<leader>o", "<cmd>Oil<cr>", { desc = "Open Folder" })
+    vim.keymap.set("n", "-", "<cmd>Oil<cr>", { desc = "Open Folder" })
   end,
 }

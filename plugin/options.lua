@@ -57,3 +57,6 @@ opt.virtualedit = "block" -- Allow cursor to move where there is no text in visu
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.autoread = true
 opt.swapfile = false
+opt.backup = false
+opt.errorbells = false
+opt.hlsearch = false
