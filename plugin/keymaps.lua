@@ -77,3 +77,5 @@ map("n", "<leader>to", "<cmd>tabonly<cr>", { desc = "New Tab" })
 map("n", "<left>", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 map("n", "<right>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 map("n", "<leader>td", "<cmd>tabclose<cr>", { desc = "Close Tab" })
+
+map("n", "<leader>r", "<nop>")
