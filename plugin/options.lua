@@ -1,3 +1,5 @@
+vim.cmd.colorscheme("catppuccin-mocha")
+
 -- [[ Setting options ]]
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 local opt = vim.opt
@@ -31,5 +33,9 @@ opt.smartindent = true
 opt.smartcase = true
 opt.splitkeep = "screen"
 opt.autowrite = true
+opt.wrap = true
+opt.linebreak = true
 
+-- Don't have `o` add a comment
+opt.formatoptions:remove("o")
 opt.guicursor = { "n-v-i-c:block", "ci-ve:ver25", "r-cr:hor20", "o:hor50", "a:blinkon100" }
