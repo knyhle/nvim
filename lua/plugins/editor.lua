@@ -9,6 +9,8 @@ return {
                 transparent_background = true,
                 term_colors = true,
                 no_italic = true,
+                no_bold = false, -- Force no bold
+                no_underline = false, -- Force no underline
             })
 
             vim.cmd.colorscheme "catppuccin"
