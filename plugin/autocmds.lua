@@ -130,7 +130,19 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd(
-  { "ModeChanged", "TextChanged" },
-  { desc = "autosave", pattern = "*", command = "silent! update" }
-)
+vim.api.nvim_create_autocmd({ "ModeChanged", "TextChanged" }, {
+  group = augroup "autosave",
+  desc = "autosave",
+  pattern = "*",
+  command = "silent! update",
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = augroup "qf_navigation",
+  pattern = "qf",
+  callback = function(event)
+    local opts = { buffer = event.buf, silent = true }
+    vim.keymap.set("n", "<C-n>", "<cmd>cn | wincmd p<CR>", opts)
+    vim.keymap.set("n", "<C-p>", "<cmd>cN | wincmd p<CR>", opts)
+  end,
+})
