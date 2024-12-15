@@ -35,7 +35,7 @@ return {
           end,
         },
         completion = {
-          completeopt = "menu,menuone,noinsert,neselect",
+          completeopt = "menu,menuone,noinsert,noselect",
         },
         window = {
           completion = cmp.config.window.bordered(),
@@ -51,7 +51,6 @@ return {
               luasnip.expand_or_jump()
             end
           end, { "i", "s" }),
-
           ["<C-h>"] = cmp.mapping(function()
             if luasnip.locally_jumpable(-1) then
               luasnip.jump(-1)

@@ -3,7 +3,7 @@ local map = vim.keymap.set
 -- [[ Basic Keymaps ]]
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
-map({ "i", "n" }, "<C-c>", "<cmd>noh<cr><C-c>", { desc = "Escape and Clear hlsearch" })
+map({ "i", "n" }, "<C-c>", "<esc>", { desc = "Escape and Clear hlsearch" })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -63,13 +63,13 @@ map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Commen
 -- map("n", "<M-x>", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 -- map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
 -- map("n", "<leader>xc", "<cmd>copen<cr>", { desc = "Quickfix List" })
-vim.keymap.set("n", "<C-n>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-p>", "<cmd>cprev<CR>zz")
+-- vim.keymap.set("n", "<C-n>", "<cmd>cnext<CR>zz")
+-- vim.keymap.set("n", "<C-p>", "<cmd>cprev<CR>zz")
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 
 -- tabs
 map("n", "<leader>t", "<nop>")
-map("n", "<leader>tn", "<cmd>tabnew<cr>", { desc = "New Tab" })
+map("n", "<leader>tn", "<cmd>tabnew %<cr>", { desc = "New Tab" })
 map("n", "<leader>to", "<cmd>tabonly<cr>", { desc = "New Tab" })
 -- map("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
 -- map("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
@@ -83,3 +83,7 @@ map("n", "<leader>r", "<nop>")
 map("n", "<C-space>", "<nop>")
 map("n", "<C-w>-", "<nop>")
 map("n", "<C-w>+", "<nop>")
+
+-- vim.keymap.set({ "n" }, "<Leader>k", function()
+--   vim.lsp.buf.signature_help()
+-- end, { silent = true, noremap = true, desc = "toggle signature" })

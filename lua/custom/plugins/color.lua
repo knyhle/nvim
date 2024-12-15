@@ -12,5 +12,8 @@ return {
         conditionals = {},
       },
     },
+    init = function()
+      vim.cmd.colorscheme "catppuccin-mocha"
+    end,
   },
 }

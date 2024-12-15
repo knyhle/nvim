@@ -28,7 +28,7 @@ return {
           settings = {
             Lua = {
               diagnostics = {
-                globals = { "vim" },
+                globals = { "vim", "Snacks" },
               },
               completion = {
                 callSnippet = "Replace",
@@ -59,6 +59,19 @@ return {
           end,
         },
       }
+    end,
+  },
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    opts = {
+      bind = true,
+      handler_opts = {
+        border = "rounded",
+      },
+    },
+    config = function(_, opts)
+      require("lsp_signature").setup(opts)
     end,
   },
 }

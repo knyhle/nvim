@@ -102,15 +102,15 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  group = augroup "qf_navigation",
-  pattern = "qf",
-  callback = function(event)
-    local opts = { buffer = event.buf, silent = true }
-    vim.keymap.set("n", "<C-n>", "<cmd>cn | wincmd p<CR>", opts)
-    vim.keymap.set("n", "<C-p>", "<cmd>cN | wincmd p<CR>", opts)
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--   group = augroup "qf_navigation",
+--   pattern = "qf",
+--   callback = function(event)
+--     local opts = { buffer = event.buf, silent = true }
+--     vim.keymap.set("n", "<C-n>", "<cmd>cn | wincmd p<CR>", opts)
+--     vim.keymap.set("n", "<C-p>", "<cmd>cN | wincmd p<CR>", opts)
+--   end,
+-- })
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = augroup "kickstart-lsp-attach",
@@ -120,16 +120,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
     end
 
-    -- vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help(), { buffer = event.buf, desc = "LSP: " .. desc })
-
-    -- vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help(), { buffer = event.buf, desc = "LSP: " .. desc })
-    map("C-s", function()
-      vim.lsp.buf.signature_help()
-    end, "[S]ignature Help", "i")
-    -- map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-    map("gd", function()
-      vim.lsp.buf.definition()
-    end, "[G]oto [D]efinition")
+    map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
     map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
     map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
     -- map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
