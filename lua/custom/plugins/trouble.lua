@@ -22,14 +22,20 @@ return {
         desc = "Buffer Diagnostics (Trouble)",
       },
       {
-        "<leader>tc",
+        "<leader>tq",
+        "<cmd>Trouble qflist toggle<cr>",
+        desc = "Quickfix List (Trouble)",
+      },
+
+      {
+        "<leader>tq",
         "<cmd>Trouble qflist toggle<cr>",
         desc = "Quickfix List (Trouble)",
       },
       {
         "<leader>tr",
-        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-        desc = "LSP Definitions / references / ... (Trouble)",
+        "<cmd>Trouble lsp_references toggle focus=true<cr>",
+        desc = "LSP References (Trouble)",
       },
       {
         "<leader>tl",
