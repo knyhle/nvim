@@ -160,6 +160,10 @@ cmp.setup {
   completion = {
     completeopt = 'menu,menuone,noinsert',
   },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
   mapping = cmp.mapping.preset.insert {
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -175,8 +179,6 @@ cmp.setup {
         cmp.confirm({ select = true })
       elseif luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
-      elseif has_words_before() then
-        cmp.complete()
       else
         fallback()
       end
