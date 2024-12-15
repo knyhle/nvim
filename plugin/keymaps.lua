@@ -38,12 +38,9 @@ map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 
 -- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua
-map(
-  "n",
-  "<leader>ur",
-  "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
-  { desc = "Redraw / Clear hlsearch / Diff Update" }
-)
+map("n", "<M-r>", function()
+  vim.cmd "nohlsearch|diffupdate|LspRestart|normal! <C-L><CR>"
+end, { desc = "Redraw / Clear hlsearch / Diff Update" })
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
 map("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })
@@ -63,8 +60,8 @@ map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Commen
 
 -- Diagnostic keymaps
 -- map("n", "<M-x>", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
-map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
-map("n", "<leader>xc", "<cmd>copen<cr>", { desc = "Quickfix List" })
+-- map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
+-- map("n", "<leader>xc", "<cmd>copen<cr>", { desc = "Quickfix List" })
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 
 -- tabs
@@ -80,8 +77,6 @@ map("n", "<right>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 map("n", "<leader>td", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 
 map("n", "<leader>r", "<nop>")
-
 map("n", "<C-space>", "<nop>")
-
 map("n", "<C-w>-", "<nop>")
 map("n", "<C-w>+", "<nop>")
