@@ -79,3 +79,8 @@ map("n", "<right>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 map("n", "<leader>td", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 
 map("n", "<leader>r", "<nop>")
+
+map("n", "<C-space>", "<nop>")
+
+map("n", "<C-w>-", "<nop>")
+map("n", "<C-w>+", "<nop>")
