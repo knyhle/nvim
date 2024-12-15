@@ -2,6 +2,8 @@ require("custom.options")
 require("custom.mapping")
 require("custom.autocmds")
 
+vim.cmd([[ autocmd VimEnter * Copilot auth ]])
+
 vim.defer_fn(function()
     require('nvim-treesitter.configs').setup {
         -- Add languages to be installed here that you want installed for treesitter
