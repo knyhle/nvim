@@ -10,9 +10,7 @@ return {
       keymaps = {
         ["g?"] = "actions.show_help",
         ["<CR>"] = "actions.select",
-
-        ["<C-c>"] = "actions.close",
-
+        -- ["<C-c>"] = "actions.close",
         ["<leader>r"] = "actions.refresh",
         ["-"] = "actions.parent",
         ["_"] = "actions.open_cwd",
@@ -25,6 +23,6 @@ return {
       },
     }
 
-    vim.keymap.set("n", "-", "<cmd>Oil<cr>", { desc = "Open Folder" })
+    vim.keymap.set("n", "<leader>o", "<cmd>Oil<cr>", { desc = "Open Folder" })
   end,
 }
