@@ -1,4 +1,11 @@
+-- Set filetype to `bigfile` for files larger than 1.5 MB
+-- Only vim syntax will be enabled (with the correct filetype)
+-- LSP, treesitter and other ft plugins will be disabled.
+-- mini.animate will also be disabled.
+vim.g.bigfile_size = 1024 * 1024 * 1.5 -- 1.5 MB
+
 vim.cmd.colorscheme("catppuccin-mocha")
+vim.opt.guicursor = { "n-v-i-c:block", "ci-ve:ver25", "r-cr:hor20", "o:hor50", "a:blinkon100" }
 
 -- [[ Setting options ]]
 -- Set to true if you have a Nerd Font installed and selected in the terminal
@@ -35,5 +42,7 @@ opt.splitkeep = "screen"
 opt.autowrite = true
 opt.wrap = true
 opt.linebreak = true
-
-opt.guicursor = { "n-v-i-c:block", "ci-ve:ver25", "r-cr:hor20", "o:hor50", "a:blinkon100" }
+opt.formatoptions = "jcroqlnt" -- tcqj
+opt.grepformat = "%f:%l:%c:%m"
+opt.grepprg = "rg --vimgrep"
+opt.jumpoptions = "view"
