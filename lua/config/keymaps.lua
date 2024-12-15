@@ -5,8 +5,6 @@
 vim.keymap.set("n", ";", ":", { desc = "command" })
 vim.keymap.set("n", ":", ";", { desc = "command" })
 
-vim.keymap.set("n", "<BS>", "<C-^>`”zz", { desc = "Switch to previous buffer" })
-
 vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Paste without overwriting clipboard" })
 
 local mark = require("harpoon.mark")
