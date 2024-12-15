@@ -1,0 +1,625 @@
+diff --git a/lazy-lock.json b/lazy-lock.json
+index da54591..08fba44 100644
+--- a/lazy-lock.json
++++ b/lazy-lock.json
+@@ -6,29 +6,32 @@
+   "cmp-nvim-lsp": { "branch": "main", "commit": "39e2eda76828d88b773cc27a3f61d2ad782c922d" },
+   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
+   "cmp_luasnip": { "branch": "master", "commit": "05a9ab28b53f71d1aece421ef32fee2cb857a843" },
+-  "conform.nvim": { "branch": "master", "commit": "40d4e98fcc3e6f485f0e8924c63734bc7e305967" },
++  "conform.nvim": { "branch": "master", "commit": "f5bd8419f8a29451e20bdb1061a54fe13d5c8de3" },
+   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
+   "fidget.nvim": { "branch": "main", "commit": "d855eed8a06531a7e8fd0684889b2943f373c469" },
+   "friendly-snippets": { "branch": "main", "commit": "de8fce94985873666bd9712ea3e49ee17aadb1ed" },
+   "gitsigns.nvim": { "branch": "main", "commit": "863903631e676b33e8be2acb17512fdc1b80b4fb" },
+-  "grug-far.nvim": { "branch": "main", "commit": "f47594f05d10b0bedfc0ed78e488e7fd714d57be" },
++  "grug-far.nvim": { "branch": "main", "commit": "190c03d54e8976491e6e49acb97087bf4182b079" },
+   "harpoon": { "branch": "harpoon2", "commit": "0378a6c428a0bed6a2781d459d7943843f374bce" },
+   "lazy.nvim": { "branch": "main", "commit": "1159bdccd8910a0fd0914b24d6c3d186689023d9" },
+   "lazydev.nvim": { "branch": "main", "commit": "491452cf1ca6f029e90ad0d0368848fac717c6d2" },
++  "lsp_signature.nvim": { "branch": "master", "commit": "fc38521ea4d9ec8dbd4c2819ba8126cea743943b" },
++  "lualine.nvim": { "branch": "master", "commit": "b431d228b7bbcdaea818bdc3e25b8cdbe861f056" },
+   "luvit-meta": { "branch": "main", "commit": "ce76f6f6cdc9201523a5875a4471dcfe0186eb60" },
+   "mason-lspconfig.nvim": { "branch": "main", "commit": "25c11854aa25558ee6c03432edfa0df0217324be" },
+   "mason-tool-installer.nvim": { "branch": "main", "commit": "c5e07b8ff54187716334d585db34282e46fa2932" },
+   "mason.nvim": { "branch": "main", "commit": "e2f7f9044ec30067bc11800a9e266664b88cda22" },
+-  "mini.nvim": { "branch": "main", "commit": "a535342b6105a684f16114f598d44318e6a1d20f" },
+-  "neogit": { "branch": "master", "commit": "a8dd1509a7fc6bf92ca60f21e33393f685ab70aa" },
+-  "nvim-cmp": { "branch": "main", "commit": "4aec249cdcef9b269e962bf73ef976181ee7fdd9" },
+-  "nvim-lint": { "branch": "master", "commit": "27f44d1cc3d733a38a736acb902f94879d99c76c" },
+-  "nvim-lspconfig": { "branch": "master", "commit": "ff69ecca55d83ffc70657f260a799f79a5637831" },
++  "mini.nvim": { "branch": "main", "commit": "9618cf56e76cc0caab54ad60116a8d72f99d7b3b" },
++  "multicursor.nvim": { "branch": "1.0", "commit": "cb8ee9dde77da5bf5ef7d3d2a3898fe2082834e8" },
++  "neogit": { "branch": "master", "commit": "3e44062d164d11848a1663831e4366b86ef6d889" },
++  "nvim-cmp": { "branch": "main", "commit": "63d7acd686da35be0227af8ccf709bc3a7f54d90" },
++  "nvim-lint": { "branch": "master", "commit": "16b21a7d04d06661f92f273a0744fd81fb19e09e" },
++  "nvim-lspconfig": { "branch": "master", "commit": "b55b9659de9ac17e05df4787bb023e4c7ef45329" },
+   "nvim-notify": { "branch": "master", "commit": "fbef5d32be8466dd76544a257d3f3dce20082a07" },
+   "nvim-tmux-navigation": { "branch": "main", "commit": "4898c98702954439233fdaf764c39636681e2861" },
+-  "nvim-treesitter": { "branch": "master", "commit": "9d2acd49976e2a9da72949008df03436f781fd23" },
+-  "nvim-web-devicons": { "branch": "master", "commit": "56f17def81478e406e3a8ec4aa727558e79786f3" },
+-  "oil.nvim": { "branch": "master", "commit": "ccab9d5e09e2d0042fbbe5b6bd05e82426247067" },
++  "nvim-treesitter": { "branch": "master", "commit": "68b2bdd99d889e9705f7e90ae64d990f3ff03cf3" },
++  "nvim-web-devicons": { "branch": "master", "commit": "19d257cf889f79f4022163c3fbb5e08639077bd8" },
++  "oil.nvim": { "branch": "master", "commit": "39dbf875861449cf09e936fa80073f3413e9439c" },
+   "persistence.nvim": { "branch": "main", "commit": "f6aad7dde7fcf54148ccfc5f622c6d5badd0cc3d" },
+   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
+   "telescope-fzf-native.nvim": { "branch": "main", "commit": "cf48d4dfce44e0b9a2e19a008d6ec6ea6f01a83b" },
+@@ -36,7 +39,6 @@
+   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
+   "telescope.nvim": { "branch": "0.1.x", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
+   "todo-comments.nvim": { "branch": "main", "commit": "ae0a2afb47cf7395dc400e5dc4e05274bf4fb9e0" },
+-  "trouble.nvim": { "branch": "main", "commit": "254145ffd528b98eb20be894338e2d5c93fa02c2" },
+   "undotree": { "branch": "master", "commit": "78b5241191852ffa9bb5da5ff2ee033160798c3b" },
+   "vim-sleuth": { "branch": "master", "commit": "be69bff86754b1aa5adcbb527d7fcd1635a84080" }
+ }
+diff --git a/lua/custom/lsp/go.lua b/lua/custom/lsp/go.lua
+index 9425aa7..d187c51 100644
+--- a/lua/custom/lsp/go.lua
++++ b/lua/custom/lsp/go.lua
+@@ -28,7 +28,7 @@ return {
+         unusedwrite = true,
+         useany = true,
+       },
+-      usePlaceholders = true,
++      -- usePlaceholders = true,
+       completeUnimported = true,
+       staticcheck = true,
+       directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
+diff --git a/lua/custom/plugins/cmp.lua b/lua/custom/plugins/cmp.lua
+index f509e42..ad512b3 100644
+--- a/lua/custom/plugins/cmp.lua
++++ b/lua/custom/plugins/cmp.lua
+@@ -35,7 +35,7 @@ return {
+           end,
+         },
+         completion = {
+-          completeopt = "menu,menuone,noinsert,neselect",
++          completeopt = "menu,menuone,noinsert,noselect",
+         },
+         window = {
+           completion = cmp.config.window.bordered(),
+@@ -51,7 +51,6 @@ return {
+               luasnip.expand_or_jump()
+             end
+           end, { "i", "s" }),
+-
+           ["<C-h>"] = cmp.mapping(function()
+             if luasnip.locally_jumpable(-1) then
+               luasnip.jump(-1)
+diff --git a/lua/custom/plugins/color.lua b/lua/custom/plugins/color.lua
+index 57cc963..f98eb04 100644
+--- a/lua/custom/plugins/color.lua
++++ b/lua/custom/plugins/color.lua
+@@ -12,5 +12,8 @@ return {
+         conditionals = {},
+       },
+     },
++    init = function()
++      vim.cmd.colorscheme "catppuccin-mocha"
++    end,
+   },
+ }
+diff --git a/lua/custom/plugins/illuminate.lua b/lua/custom/plugins/illuminate.lua
+deleted file mode 100644
+index 2e73d21..0000000
+--- a/lua/custom/plugins/illuminate.lua
++++ /dev/null
+@@ -1,20 +0,0 @@
+-return {
+-  -- {
+-  --   "RRethy/vim-illuminate",
+-  --   opts = {
+-  --     delay = 200,
+-  --     large_file_cutoff = 2000,
+-  --     large_file_overrides = {
+-  --       providers = { "lsp" },
+-  --     },
+-  --   },
+-  --   config = function(_, opts)
+-  --     require("illuminate").configure(opts)
+-  --   end,
+-  -- },
+-  -- LazyVim configuration
+-  -- {
+-  --   "neovim/nvim-lspconfig",
+-  --   opts = { document_highlight = { enabled = false } },
+-  -- },
+-}
+diff --git a/lua/custom/plugins/lint.lua b/lua/custom/plugins/lint.lua
+index 26eeaf1..f614738 100644
+--- a/lua/custom/plugins/lint.lua
++++ b/lua/custom/plugins/lint.lua
+@@ -6,7 +6,7 @@ return {
+       local lint = require "lint"
+       lint.linters_by_ft = {
+         markdown = { "markdownlint" },
+-        dockerfile = { "hadolint" },
++        -- dockerfile = { "hadolint" },
+         -- python = { "ruff" },
+       }
+ 
+diff --git a/lua/custom/plugins/lsp.lua b/lua/custom/plugins/lsp.lua
+index 13f968a..fd9f86e 100644
+--- a/lua/custom/plugins/lsp.lua
++++ b/lua/custom/plugins/lsp.lua
+@@ -61,4 +61,17 @@ return {
+       }
+     end,
+   },
++  {
++    "ray-x/lsp_signature.nvim",
++    event = "VeryLazy",
++    opts = {
++      bind = true,
++      handler_opts = {
++        border = "rounded",
++      },
++    },
++    config = function(_, opts)
++      require("lsp_signature").setup(opts)
++    end,
++  },
+ }
+diff --git a/lua/custom/plugins/lualine.lua b/lua/custom/plugins/lualine.lua
+new file mode 100644
+index 0000000..c00a405
+--- /dev/null
++++ b/lua/custom/plugins/lualine.lua
+@@ -0,0 +1,9 @@
++return {
++  "nvim-lualine/lualine.nvim",
++  opts = {
++    options = {
++      theme = "catppuccin",
++    },
++  },
++  dependencies = { "nvim-tree/nvim-web-devicons" },
++}
+diff --git a/lua/custom/plugins/mini.lua b/lua/custom/plugins/mini.lua
+index 2176db9..2d5156d 100644
+--- a/lua/custom/plugins/mini.lua
++++ b/lua/custom/plugins/mini.lua
+@@ -19,17 +19,17 @@ return { -- Collection of various small independent plugins/modules
+     -- Simple and easy statusline.
+     --  You could remove this setup call if you don't like it,
+     --  and try some other statusline plugin
+-    local statusline = require "mini.statusline"
+-    -- set use_icons to true if you have a Nerd Font
+-    statusline.setup { use_icons = vim.g.have_nerd_font }
++    -- local statusline = require "mini.statusline"
++    -- -- set use_icons to true if you have a Nerd Font
++    -- statusline.setup { use_icons = true }
+ 
+     -- You can configure sections in the statusline by overriding their
+     -- default behavior. For example, here we set the section for
+     -- cursor location to LINE:COLUMN
+     ---@diagnostic disable-next-line: duplicate-set-field
+-    statusline.section_location = function()
+-      return "%2l:%-2v"
+-    end
++    -- statusline.section_location = function()
++    --   return "%2l:%-2v"
++    -- end
+ 
+     -- ... and there is more!
+     --  Check out: https://github.com/echasnovski/mini.nvim
+diff --git a/lua/custom/plugins/multicursor.lua b/lua/custom/plugins/multicursor.lua
+index 72dabed..859f325 100644
+--- a/lua/custom/plugins/multicursor.lua
++++ b/lua/custom/plugins/multicursor.lua
+@@ -1,89 +1,79 @@
+-return {}
+--- return {
+---   "jake-stewart/multicursor.nvim",
+---   branch = "1.0",
+---   config = function()
+---     local mc = require "multicursor-nvim"
+---
+---     mc.setup()
+---
+---     -- Add a cursor and jump to the next word under cursor.
+---     -- vim.keymap.set({ "n", "v" }, "<c-n>", function()
+---     --   mc.addCursor "*"
+---     -- end)
+---
+---     -- Jump to the next word under cursor but do not add a cursor.
+---     -- vim.keymap.set({ "n", "v" }, "<c-s>", function()
+---     --   mc.skipCursor "*"
+---     -- end)
+---
+---     -- -- Rotate the main cursor.
+---     -- vim.keymap.set({ "n", "v" }, "<left>", mc.nextCursor)
+---     -- vim.keymap.set({ "n", "v" }, "<right>", mc.prevCursor)
+---     --
+---     -- -- Delete the main cursor.
+---     -- vim.keymap.set({ "n", "v" }, "<leader>x", mc.deleteCursor)
+---     --
+---     -- -- Add and remove cursors with control + left click.
+---     -- vim.keymap.set("n", "<c-leftmouse>", mc.handleMouse)
+---     --
+---     -- vim.keymap.set({ "n", "v" }, "<c-q>", function()
+---     --   if mc.cursorsEnabled() then
+---     --     -- Stop other cursors from moving.
+---     --     -- This allows you to reposition the main cursor.
+---     --     mc.disableCursors()
+---     --   else
+---     --     mc.addCursor()
+---     --   end
+---     -- end)
+---     --
+---     vim.keymap.set("n", "<esc>", function()
+---       if not mc.cursorsEnabled() then
+---         mc.enableCursors()
+---       elseif mc.hasCursors() then
+---         mc.clearCursors()
+---       else
+---         vim.cmd "nohlsearch"
+---         return "<Esc>"
+---       end
+---     end)
+---
+---     vim.keymap.set("n", "<C-c>", function()
+---       if not mc.cursorsEnabled() then
+---         mc.enableCursors()
+---       elseif mc.hasCursors() then
+---         mc.clearCursors()
+---       else
+---         vim.cmd "nohlsearch"
+---         return "<C-c>"
+---       end
+---     end)
+---
+---     -- Align cursor columns.
+---     -- vim.keymap.set("n", "<leader>a", mc.alignCursors)
+---
+---     -- Split visual selections by regex.
+---     vim.keymap.set("v", "S", mc.splitCursors)
+---
+---     -- Append/insert for each line of visual selections.
+---     vim.keymap.set("v", "I", mc.insertVisual)
+---     vim.keymap.set("v", "A", mc.appendVisual)
+---
+---     -- match new cursors within visual selections by regex.
+---     vim.keymap.set("v", "M", mc.matchCursors)
+---
+---     -- -- Rotate visual selection contents.
+---     -- vim.keymap.set("v", "<leader>t", function()
+---     --   mc.transposeCursors(1)
+---     -- end)
+---     -- vim.keymap.set("v", "<leader>T", function()
+---     --   mc.transposeCursors(-1)
+---     -- end)
+---
+---     -- Customize how cursors look.
+---     -- vim.api.nvim_set_hl(0, "MultiCursorCursor", { link = "Cursor" })
+---     -- vim.api.nvim_set_hl(0, "MultiCursorVisual", { link = "Visual" })
+---     -- vim.api.nvim_set_hl(0, "MultiCursorDisabledCursor", { link = "Visual" })
+---     -- vim.api.nvim_set_hl(0, "MultiCursorDisabledVisual", { link = "Visual" })
+---   end,
+--- }
++return {
++  {
++    "jake-stewart/multicursor.nvim",
++    branch = "1.0",
++    config = function()
++      local mc = require "multicursor-nvim"
++
++      mc.setup()
++
++      -- Add a cursor and jump to the next word under cursor.
++      vim.keymap.set({ "n", "v" }, "<c-n>", function()
++        mc.addCursor "*"
++      end)
++
++      -- Jump to the next word under cursor but do not add a cursor.
++      vim.keymap.set({ "n", "v" }, "<c-s>", function()
++        mc.skipCursor "*"
++      end)
++
++      -- -- Rotate the main cursor.
++      -- vim.keymap.set({ "n", "v" }, "<left>", mc.nextCursor)
++      -- vim.keymap.set({ "n", "v" }, "<right>", mc.prevCursor)
++      --
++      -- -- Delete the main cursor.
++      -- vim.keymap.set({ "n", "v" }, "<leader>x", mc.deleteCursor)
++      --
++      -- -- Add and remove cursors with control + left click.
++      -- vim.keymap.set("n", "<c-leftmouse>", mc.handleMouse)
++      --
++      -- vim.keymap.set({ "n", "v" }, "<c-q>", function()
++      --   if mc.cursorsEnabled() then
++      --     -- Stop other cursors from moving.
++      --     -- This allows you to reposition the main cursor.
++      --     mc.disableCursors()
++      --   else
++      --     mc.addCursor()
++      --   end
++      -- end)
++      --
++      vim.keymap.set("n", "<esc>", function()
++        if not mc.cursorsEnabled() then
++          mc.enableCursors()
++        elseif mc.hasCursors() then
++          mc.clearCursors()
++        else
++          vim.cmd "nohlsearch"
++          return "<Esc>"
++        end
++      end)
++
++      -- Align cursor columns.
++      -- vim.keymap.set("n", "<leader>a", mc.alignCursors)
++
++      -- Split visual selections by regex.
++      vim.keymap.set("v", "S", mc.splitCursors)
++
++      -- Append/insert for each line of visual selections.
++      vim.keymap.set("v", "I", mc.insertVisual)
++      vim.keymap.set("v", "A", mc.appendVisual)
++
++      -- match new cursors within visual selections by regex.
++      vim.keymap.set("v", "M", mc.matchCursors)
++
++      -- -- Rotate visual selection contents.
++      -- vim.keymap.set("v", "<leader>t", function()
++      --   mc.transposeCursors(1)
++      -- end)
++      -- vim.keymap.set("v", "<leader>T", function()
++      --   mc.transposeCursors(-1)
++      -- end)
++
++      -- Customize how cursors look.
++      -- vim.api.nvim_set_hl(0, "MultiCursorCursor", { link = "Cursor" })
++      -- vim.api.nvim_set_hl(0, "MultiCursorVisual", { link = "Visual" })
++      -- vim.api.nvim_set_hl(0, "MultiCursorDisabledCursor", { link = "Visual" })
++      -- vim.api.nvim_set_hl(0, "MultiCursorDisabledVisual", { link = "Visual" })
++    end,
++  },
++}
+diff --git a/lua/custom/plugins/toggleterm.lua b/lua/custom/plugins/toggleterm.lua
+deleted file mode 100644
+index 65539bf..0000000
+--- a/lua/custom/plugins/toggleterm.lua
++++ /dev/null
+@@ -1,8 +0,0 @@
+-return {
+-  -- "akinsho/toggleterm.nvim",
+-  -- version = "*",
+-  -- config = function()
+-  --   require("toggleterm").setup()
+-  --   vim.keymap.set({ "n", "t" }, "<M-t>", "<cmd>ToggleTerm<cr>")
+-  -- end,
+-}
+diff --git a/lua/custom/plugins/trouble.lua b/lua/custom/plugins/trouble.lua
+index a54734a..7e66ff4 100644
+--- a/lua/custom/plugins/trouble.lua
++++ b/lua/custom/plugins/trouble.lua
+@@ -1,47 +1,47 @@
+ return {
+-  {
+-    "folke/trouble.nvim",
+-    opts = {
+-      auto_jump = true, -- auto jump to the item when there's only one
+-      focus = true, -- Focus the window when opened
+-      pinned = true, -- When pinned, the opened trouble window will be bound to the current buffer
+-      modes = {
+-        -- diagnostics = { auto_open = true },
+-      },
+-    },
+-    cmd = "Trouble",
+-    keys = {
+-      {
+-        "<leader>tt",
+-        "<cmd>Trouble diagnostics toggle<cr>",
+-        desc = "Diagnostics (Trouble)",
+-      },
+-      {
+-        "<leader>tT",
+-        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+-        desc = "Buffer Diagnostics (Trouble)",
+-      },
+-      {
+-        "<leader>tq",
+-        "<cmd>Trouble qflist toggle<cr>",
+-        desc = "Quickfix List (Trouble)",
+-      },
+-
+-      {
+-        "<leader>tq",
+-        "<cmd>Trouble qflist toggle<cr>",
+-        desc = "Quickfix List (Trouble)",
+-      },
+-      {
+-        "<leader>tr",
+-        "<cmd>Trouble lsp_references toggle focus=true<cr>",
+-        desc = "LSP References (Trouble)",
+-      },
+-      {
+-        "<leader>tl",
+-        "<cmd>Trouble symbols toggle focus=false<cr>",
+-        desc = "Symbols (Trouble)",
+-      },
+-    },
+-  },
++  -- {
++  --   "folke/trouble.nvim",
++  --   opts = {
++  --     auto_jump = true, -- auto jump to the item when there's only one
++  --     focus = true, -- Focus the window when opened
++  --     pinned = true, -- When pinned, the opened trouble window will be bound to the current buffer
++  --     modes = {
++  --       -- diagnostics = { auto_open = true },
++  --     },
++  --   },
++  --   cmd = "Trouble",
++  --   keys = {
++  --     {
++  --       "<leader>tt",
++  --       "<cmd>Trouble diagnostics toggle<cr>",
++  --       desc = "Diagnostics (Trouble)",
++  --     },
++  --     {
++  --       "<leader>tT",
++  --       "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
++  --       desc = "Buffer Diagnostics (Trouble)",
++  --     },
++  --     {
++  --       "<leader>tq",
++  --       "<cmd>Trouble qflist toggle<cr>",
++  --       desc = "Quickfix List (Trouble)",
++  --     },
++  --
++  --     {
++  --       "<leader>tq",
++  --       "<cmd>Trouble qflist toggle<cr>",
++  --       desc = "Quickfix List (Trouble)",
++  --     },
++  --     {
++  --       "<leader>tr",
++  --       "<cmd>Trouble lsp_references toggle focus=true<cr>",
++  --       desc = "LSP References (Trouble)",
++  --     },
++  --     {
++  --       "<leader>tl",
++  --       "<cmd>Trouble symbols toggle focus=false<cr>",
++  --       desc = "Symbols (Trouble)",
++  --     },
++  --   },
++  -- },
+ }
+diff --git a/lua/custom/plugins/undotree.lua b/lua/custom/plugins/undotree.lua
+index fe71c5a..c28396a 100644
+--- a/lua/custom/plugins/undotree.lua
++++ b/lua/custom/plugins/undotree.lua
+@@ -1,6 +1,6 @@
+ return {
+   "mbbill/undotree",
+   config = function()
+-    vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
++    vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle)
+   end,
+ }
+diff --git a/plugin/autocmds.lua b/plugin/autocmds.lua
+index 31dd41f..eaef993 100644
+--- a/plugin/autocmds.lua
++++ b/plugin/autocmds.lua
+@@ -120,16 +120,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
+       vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+     end
+ 
+-    -- vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help(), { buffer = event.buf, desc = "LSP: " .. desc })
+-
+-    -- vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help(), { buffer = event.buf, desc = "LSP: " .. desc })
+-    map("C-s", function()
+-      vim.lsp.buf.signature_help()
+-    end, "[S]ignature Help", "i")
+-    -- map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+-    map("gd", function()
+-      vim.lsp.buf.definition()
+-    end, "[G]oto [D]efinition")
++    map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+     map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+     map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+     -- map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+diff --git a/plugin/keymaps.lua b/plugin/keymaps.lua
+index 2efa979..37b28c9 100644
+--- a/plugin/keymaps.lua
++++ b/plugin/keymaps.lua
+@@ -2,8 +2,8 @@ local map = vim.keymap.set
+ 
+ -- [[ Basic Keymaps ]]
+ -- Clear search with <esc>
+-map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
+-map({ "i", "n" }, "<C-c>", "<cmd>noh<cr><C-c>", { desc = "Escape and Clear hlsearch" })
++map({ "i" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
++map({ "i", "n" }, "<C-c>", "<esc>", { desc = "Escape and Clear hlsearch" })
+ 
+ -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
+ -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
+diff --git a/plugin/options.lua b/plugin/options.lua
+index 0424933..79a742e 100644
+--- a/plugin/options.lua
++++ b/plugin/options.lua
+@@ -1,56 +1,37 @@
+--- vim.cmd.colorscheme "catppuccin-macchiato"
+-vim.cmd.colorscheme "catppuccin-mocha"
+-
+ vim.g.have_nerd_font = true
+ 
+--- [[ Setting options ]]
+ -- Set to true if you have a Nerd Font installed and selected in the terminal
++-- [[ Setting options ]]
+ local opt = vim.opt
+-
+-opt.autowrite = true
+ opt.guicursor = ""
+-opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
+--- opt.colorcolumn = "88"
+-opt.number = true
+-opt.relativenumber = true
+-opt.mouse = "a"
+ opt.showmode = false
+--- vim.schedule(function()
+-opt.clipboard = "unnamedplus"
+--- end)
+-opt.breakindent = true
+-opt.undofile = true
++opt.pumblend = 10 -- Popup blend
++opt.pumheight = 10 -- Maximum number of entries in a popup
++opt.autowrite = true
++opt.backup = false
++-- opt.colorcolumn = "80"
++opt.errorbells = false
++opt.expandtab = true
++opt.inccommand = "split"
++opt.incsearch = true
++opt.isfname:append "@-@"
+ opt.ignorecase = true
+ opt.smartcase = true
+-opt.signcolumn = "yes"
+-opt.updatetime = 250
+-opt.timeoutlen = 300
+-opt.splitright = true
+-opt.splitbelow = true
+ opt.list = true
+-opt.inccommand = "split"
+-opt.pumblend = 10 -- Popup blend
+-opt.pumheight = 10 -- Maximum number of entries in a popup
+-opt.cursorline = false
+-opt.scrolloff = 10
+-opt.tabstop = 4
++opt.number = true
++opt.relativenumber = true
++opt.scrolloff = 8
+ opt.shiftwidth = 4
+-opt.expandtab = true
++opt.signcolumn = "yes"
+ opt.smartindent = true
+-opt.smartcase = true
+-opt.splitkeep = "screen"
+-opt.autowrite = true
+-opt.wrap = true
+-opt.linebreak = true
+-opt.formatoptions = "jcroqlnt" -- tcqj
+-opt.grepformat = "%f:%l:%c:%m"
+-opt.grepprg = "rg --vimgrep"
+-opt.jumpoptions = "view"
+-opt.shortmess:append { W = true, I = true, c = true, C = true }
+-opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
+-opt.wildmode = "longest:full,full" -- Command-line completion mode
+-opt.autoread = true
++opt.softtabstop = 4
++opt.splitbelow = true
++opt.splitright = true
+ opt.swapfile = false
+-opt.backup = false
+-opt.errorbells = false
+-opt.hlsearch = false
++opt.tabstop = 4
++opt.termguicolors = true
++opt.undodir = os.getenv "HOME" .. "/.vim/undodir"
++opt.undofile = true
++opt.updatetime = 50
++opt.wildmode = "longest:full,full" -- Command-line completion mode
++opt.wrap = false
