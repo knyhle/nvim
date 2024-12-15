@@ -2,6 +2,8 @@
 vim.keymap.set({ "n", "v", "x" }, ";", ":")
 vim.keymap.set({ "n", "v", "x" }, ":", ";")
 
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>")
+
 vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Paste without overwriting clipboard" })
 
 function JumpAndCenter()
@@ -15,6 +17,10 @@ vim.api.nvim_set_keymap("n", "`", ":lua JumpAndCenter()<CR>", { noremap = true, 
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up" })
+
+-- Remap for dealing with word wrap
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Move to window using the <ctrl> hjkl keys
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
