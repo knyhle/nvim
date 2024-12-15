@@ -131,6 +131,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.api.nvim_create_autocmd(
-  { "FocusLost", "ModeChanged", "TextChanged", "BufEnter" },
+  { "ModeChanged", "TextChanged" },
   { desc = "autosave", pattern = "*", command = "silent! update" }
 )
