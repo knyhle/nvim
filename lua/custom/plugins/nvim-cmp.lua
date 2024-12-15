@@ -75,9 +75,17 @@ return {
         documentation = cmp.config.window.bordered(),
       },
       mapping = cmp.mapping.preset.insert {
-        ["<C-Space>"] = cmp.mapping.complete(),
+        -- ["<C-Space>"] = cmp.mapping.complete(),
         -- Select the [n]ext item
-        ["<C-n>"] = cmp.mapping.select_next_item(),
+
+        -- ["<C-n>"] = cmp.mapping.select_next_item(),
+        ["<C-n>"] = cmp.mapping(function()
+          if cmp.visible() then
+            cmp.select_next_item()
+          else
+            cmp.complete()
+          end
+        end, { "i", "s" }),
         -- Select the [p]revious item
         ["<C-p>"] = cmp.mapping.select_prev_item(),
         -- Scroll the documentation window [b]ack / [f]orward

@@ -17,23 +17,23 @@ return { -- Adds git related signs to the gutter, as well as utilities for manag
         vim.keymap.set(mode, l, r, opts)
       end
 
-      -- Navigation
-      map("n", "]h", function()
-        if vim.wo.diff then
-          vim.cmd.normal { "]h", bang = true }
-        else
-          gitsigns.nav_hunk "next"
-        end
-      end, { desc = "Jump to next git change" })
-
-      map("n", "[h", function()
-        if vim.wo.diff then
-          vim.cmd.normal { "[h", bang = true }
-        else
-          gitsigns.nav_hunk "prev"
-        end
-      end, { desc = "Jump to previous git change" })
-
+      -- -- Navigation
+      -- map("n", "]h", function()
+      --   if vim.wo.diff then
+      --     vim.cmd.normal { "]h", bang = true }
+      --   else
+      --     gitsigns.nav_hunk "next"
+      --   end
+      -- end, { desc = "Jump to next git change" })
+      --
+      -- map("n", "[h", function()
+      --   if vim.wo.diff then
+      --     vim.cmd.normal { "[h", bang = true }
+      --   else
+      --     gitsigns.nav_hunk "prev"
+      --   end
+      -- end, { desc = "Jump to previous git change" })
+      --
       -- Actions
       -- visual mode
       map("v", "<leader>hs", function()
@@ -49,14 +49,14 @@ return { -- Adds git related signs to the gutter, as well as utilities for manag
       map("n", "<leader>hu", gitsigns.undo_stage_hunk, { desc = "git [u]ndo stage hunk" })
       map("n", "<leader>hR", gitsigns.reset_buffer, { desc = "git [R]eset buffer" })
       map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "git [p]review hunk" })
-      map("n", "<leader>hb", gitsigns.blame_line, { desc = "git [b]lame line" })
-      map("n", "<leader>hd", gitsigns.diffthis, { desc = "git [d]iff against index" })
+      -- map("n", "<leader>hb", gitsigns.blame_line, { desc = "git [b]lame line" })
+      -- map("n", "<leader>hd", gitsigns.diffthis, { desc = "git [d]iff against index" })
       -- map("n", "<leader>hD", function()
       -- 	gitsigns.diffthis("@")
       -- end, { desc = "git [D]iff against last commit" })
       -- -- Toggles
-      map("n", "<leader>tb", gitsigns.toggle_current_line_blame, { desc = "[T]oggle git show [b]lame line" })
-      map("n", "<leader>tD", gitsigns.toggle_deleted, { desc = "[T]oggle git show [D]eleted" })
+      -- map("n", "<leader>tb", gitsigns.toggle_current_line_blame, { desc = "[T]oggle git show [b]lame line" })
+      -- map("n", "<leader>tD", gitsigns.toggle_deleted, { desc = "[T]oggle git show [D]eleted" })
     end,
   },
 }
