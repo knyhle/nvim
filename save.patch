@@ -1,0 +1,1041 @@
+diff --git a/after/ftplugin/bash.lua b/after/ftplugin/bash.lua
+new file mode 100644
+index 0000000..dbc6fd2
+--- /dev/null
++++ b/after/ftplugin/bash.lua
+@@ -0,0 +1,3 @@
++vim.opt.shiftwidth = 4
++vim.opt.expandtab = true
++vim.opt.tabstop = 4
+diff --git a/after/ftplugin/netrw.lua b/after/ftplugin/netrw.lua
+new file mode 100644
+index 0000000..3beb9ac
+--- /dev/null
++++ b/after/ftplugin/netrw.lua
+@@ -0,0 +1,6 @@
++local o = vim.opt
++
++o.colorcolumn = nil
++
++-- Line numbers etc in Netrw
++vim.cmd [[let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro']]
+diff --git a/lazy-lock.json b/lazy-lock.json
+index 6665ad6..5780210 100644
+--- a/lazy-lock.json
++++ b/lazy-lock.json
+@@ -1,42 +1,43 @@
+ {
+-  "LuaSnip": { "branch": "master", "commit": "33b06d72d220aa56a7ce80a0dd6f06c70cd82b9d" },
+-  "catppuccin": { "branch": "main", "commit": "faf15ab0201b564b6368ffa47b56feefc92ce3f4" },
+-  "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
+-  "cmp-cmdline": { "branch": "main", "commit": "d250c63aa13ead745e3a40f61fdd3470efde3923" },
+-  "cmp-nvim-lsp": { "branch": "main", "commit": "99290b3ec1322070bcfb9e846450a46f6efa50f0" },
+-  "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
+-  "cmp_luasnip": { "branch": "master", "commit": "98d9cb5c2c38532bd9bdb481067b20fea8f32e90" },
+-  "conform.nvim": { "branch": "master", "commit": "f4e8837878fc5712d053ba3091a73d27d96a09e2" },
+-  "fidget.nvim": { "branch": "main", "commit": "e2a175c2abe2d4f65357da1c98c59a5cfb2b543f" },
++  "blink.cmp": { "branch": "main", "commit": "1c8d8e45d6fba3d11512f4762b1fdf906bffca42" },
++  "catppuccin": { "branch": "main", "commit": "5b5e3aef9ad7af84f463d17b5479f06b87d5c429" },
++  "conform.nvim": { "branch": "master", "commit": "db8a4a9edb217067b1d7a2e0362c74bfe9cc944d" },
++  "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
++  "fidget.nvim": { "branch": "main", "commit": "d9ba6b7bfe29b3119a610892af67602641da778e" },
+   "friendly-snippets": { "branch": "main", "commit": "efff286dd74c22f731cdec26a70b46e5b203c619" },
+-  "gitsigns.nvim": { "branch": "main", "commit": "5f808b5e4fef30bd8aca1b803b4e555da07fc412" },
+-  "grug-far.nvim": { "branch": "main", "commit": "11d0fbd6fff6f4e394af95319deeaab4ef88ce97" },
+-  "harpoon": { "branch": "harpoon2", "commit": "a84ab829eaf3678b586609888ef52f7779102263" },
+-  "lazy.nvim": { "branch": "main", "commit": "7e6c863bc7563efbdd757a310d17ebc95166cef3" },
+-  "lazydev.nvim": { "branch": "main", "commit": "f59bd14a852ca43db38e3662395354cb2a9b13e0" },
+-  "lsp_signature.nvim": { "branch": "master", "commit": "fc38521ea4d9ec8dbd4c2819ba8126cea743943b" },
+-  "lualine.nvim": { "branch": "master", "commit": "2a5bae925481f999263d6f5ed8361baef8df4f83" },
+-  "luvit-meta": { "branch": "main", "commit": "57d464c4acb5c2e66bd4145060f5dc9e96a7bbb7" },
+-  "mason-lspconfig.nvim": { "branch": "main", "commit": "8e46de9241d3997927af12196bd8faa0ed08c29a" },
+-  "mason-tool-installer.nvim": { "branch": "main", "commit": "c5e07b8ff54187716334d585db34282e46fa2932" },
+-  "mason.nvim": { "branch": "main", "commit": "e2f7f9044ec30067bc11800a9e266664b88cda22" },
+-  "mini.nvim": { "branch": "main", "commit": "7ebfab26d77a4b9b05aaae565907e7fa4b2ee154" },
+-  "nvim-cmp": { "branch": "main", "commit": "c9135e36779f036936e8305383126740c39f5d0f" },
+-  "nvim-lint": { "branch": "master", "commit": "6b46370d02cd001509a765591a3ffc481b538794" },
+-  "nvim-lspconfig": { "branch": "master", "commit": "ae8a01bb40848490548e5d07b97ed972ed43c2f9" },
++  "gitsigns.nvim": { "branch": "main", "commit": "7010000889bfb6c26065e0b0f7f1e6aa9163edd9" },
++  "grug-far.nvim": { "branch": "main", "commit": "a5d095a2ee0a04d656d1b2c3e2ad210ff3daf75c" },
++  "harpoon": { "branch": "harpoon2", "commit": "ed1f853847ffd04b2b61c314865665e1dadf22c7" },
++  "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
++  "lazydev.nvim": { "branch": "main", "commit": "2367a6c0a01eb9edb0464731cc0fb61ed9ab9d2c" },
++  "lua-async-await": { "branch": "main", "commit": "652d94df34e97abe2d4a689edbc4270e7ead1a98" },
++  "lualine.nvim": { "branch": "master", "commit": "b8b60c7f1d0d95ad74ee215b2291280b30482476" },
++  "luvit-meta": { "branch": "main", "commit": "1df30b60b1b4aecfebc785aa98943db6c6989716" },
++  "mason-lspconfig.nvim": { "branch": "main", "commit": "1a31f824b9cd5bc6f342fc29e9a53b60d74af245" },
++  "mason-tool-installer.nvim": { "branch": "main", "commit": "5639d58a3d11ff7c05c8e31e159bfedae55d7961" },
++  "mason.nvim": { "branch": "main", "commit": "fc98833b6da5de5a9c5b1446ac541577059555be" },
++  "mini.nvim": { "branch": "main", "commit": "88f18a7d018d8bb4d32f6be4c712134a10e826d3" },
++  "neogit": { "branch": "master", "commit": "333968f8222fda475d3e4545a9b15fe9912ca26a" },
++  "nui.nvim": { "branch": "main", "commit": "8d3bce9764e627b62b07424e0df77f680d47ffdb" },
++  "nvim-dap": { "branch": "master", "commit": "6a5bba0ddea5d419a783e170c20988046376090d" },
++  "nvim-java": { "branch": "main", "commit": "e552f06d86752edd77aedf50b9b49e59f6de1b65" },
++  "nvim-java-core": { "branch": "main", "commit": "401bf7683012a25929a359deec418f36beb876e2" },
++  "nvim-java-dap": { "branch": "main", "commit": "55f239532f7a3789d21ea68d1e795abc77484974" },
++  "nvim-java-refactor": { "branch": "main", "commit": "b51a57d862338999059e1d1717df3bc80a3a15c0" },
++  "nvim-java-test": { "branch": "main", "commit": "7f0f40e9c5b7eab5096d8bec6ac04251c6e81468" },
++  "nvim-lint": { "branch": "master", "commit": "936197073214c26a347fb933c9459c8766376b23" },
++  "nvim-lspconfig": { "branch": "master", "commit": "185b2af444b27d6541c02d662b5b68190e5cf0c4" },
+   "nvim-tmux-navigation": { "branch": "main", "commit": "4898c98702954439233fdaf764c39636681e2861" },
+-  "nvim-treesitter": { "branch": "master", "commit": "7fee2c55e0ba1a6307a80eee7fab84533e5721e9" },
+-  "nvim-web-devicons": { "branch": "master", "commit": "1736cb81bdc42e1ee206081a161bdb2af68fb7a1" },
+-  "oil.nvim": { "branch": "master", "commit": "dba037598843973b8c54bc5ce0318db4a0da439d" },
+-  "persistence.nvim": { "branch": "main", "commit": "f6aad7dde7fcf54148ccfc5f622c6d5badd0cc3d" },
+-  "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
+-  "snacks.nvim": { "branch": "main", "commit": "dcc5338e6f2a825b78791c96829d7e5a29e3ea5d" },
+-  "telescope-fzf-native.nvim": { "branch": "main", "commit": "dae2eac9d91464448b584c7949a31df8faefec56" },
++  "nvim-treesitter": { "branch": "master", "commit": "835f5c11b8d4e1ded3576c69a019f717d3754c5a" },
++  "nvim-web-devicons": { "branch": "master", "commit": "4c3a5848ee0b09ecdea73adcd2a689190aeb728c" },
++  "persistence.nvim": { "branch": "main", "commit": "166a79a55bfa7a4db3e26fc031b4d92af71d0b51" },
++  "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
++  "spring-boot.nvim": { "branch": "main", "commit": "218c0c26c14d99feca778e4d13f5ec3e8b1b60f0" },
++  "telescope-fzf-native.nvim": { "branch": "main", "commit": "1f08ed60cafc8f6168b72b80be2b2ea149813e55" },
+   "telescope-live-grep-args.nvim": { "branch": "master", "commit": "8ad632f793fd437865f99af5684f78300dac93fb" },
+   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
+   "telescope.nvim": { "branch": "0.1.x", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
+-  "todo-comments.nvim": { "branch": "main", "commit": "ae0a2afb47cf7395dc400e5dc4e05274bf4fb9e0" },
+-  "undotree": { "branch": "master", "commit": "78b5241191852ffa9bb5da5ff2ee033160798c3b" },
++  "undotree": { "branch": "master", "commit": "b951b87b46c34356d44aa71886aecf9dd7f5788a" },
+   "vim-abolish": { "branch": "master", "commit": "dcbfe065297d31823561ba787f51056c147aa682" },
+   "vim-sleuth": { "branch": "master", "commit": "be69bff86754b1aa5adcbb527d7fcd1635a84080" }
+ }
+diff --git a/lua/custom/lsp/go.lua b/lua/custom/lsp/go.lua
+index d187c51..a322aaf 100644
+--- a/lua/custom/lsp/go.lua
++++ b/lua/custom/lsp/go.lua
+@@ -21,13 +21,13 @@ return {
+         parameterNames = true,
+         rangeVariableTypes = true,
+       },
+-      analyses = {
+-        fieldalignment = true,
+-        nilness = true,
+-        unusedparams = true,
+-        unusedwrite = true,
+-        useany = true,
+-      },
++      -- analyses = {
++      --   -- fieldalignment = true,
++      --   nilness = true,
++      --   unusedparams = true,
++      --   unusedwrite = true,
++      --   useany = true,
++      -- },
+       -- usePlaceholders = true,
+       completeUnimported = true,
+       staticcheck = true,
+diff --git a/lua/custom/plugins/blink.lua b/lua/custom/plugins/blink.lua
+new file mode 100644
+index 0000000..cff6de9
+--- /dev/null
++++ b/lua/custom/plugins/blink.lua
+@@ -0,0 +1,58 @@
++return {
++  "saghen/blink.cmp",
++  -- optional: provides snippets for the snippet source
++  dependencies = "rafamadriz/friendly-snippets",
++
++  -- use a release tag to download pre-built binaries
++  version = "*",
++  -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
++  -- build = 'cargo build --release',
++  -- If you use nix, you can build from source using latest nightly rust with:
++  -- build = 'nix run .#build-plugin',
++
++  ---@module 'blink.cmp'
++  ---@type blink.cmp.Config
++  opts = {
++    -- 'default' for mappings similar to built-in completion
++    -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
++    -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
++    -- See the full "keymap" documentation for information on defining your own keymap.
++    keymap = { preset = "default" },
++
++    appearance = {
++      -- Sets the fallback highlight groups to nvim-cmp's highlight groups
++      -- Useful for when your theme doesn't support blink.cmp
++      -- Will be removed in a future release
++      use_nvim_cmp_as_default = true,
++      -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
++      -- Adjusts spacing to ensure icons are aligned
++      nerd_font_variant = "mono",
++    },
++
++    -- Default list of enabled providers defined so that you can extend it
++    -- elsewhere in your config, without redefining it, due to `opts_extend`
++    sources = {
++      default = { "lsp", "path", "snippets", "buffer" },
++    },
++    cmdline = {
++      enabled = false,
++    },
++    completion = {
++      menu = {
++        border = "single",
++      },
++      documentation = {
++        auto_show = true,
++        window = {
++          border = "single",
++        },
++      },
++    },
++    signature = {
++      window = {
++        border = "single",
++      },
++    },
++  },
++  opts_extend = { "sources.default" },
++}
+diff --git a/lua/custom/plugins/cmp.lua b/lua/custom/plugins/cmp.lua
+index ad512b3..096f0ee 100644
+--- a/lua/custom/plugins/cmp.lua
++++ b/lua/custom/plugins/cmp.lua
+@@ -1,88 +1,88 @@
+ return {
+-  {
+-    -- Autocompletion
+-    -- "hrsh7th/nvim-cmp",
+-    -- "yioneko/nvim-cmp",
+-    -- branch = "perf-up",
+-    "iguanacucumber/magazine.nvim",
+-    name = "nvim-cmp", -- Otherwise highlighting gets messed up
+-    event = "InsertEnter",
+-    dependencies = {
+-      "hrsh7th/cmp-nvim-lsp",
+-      "hrsh7th/cmp-path",
+-      "hrsh7th/cmp-buffer",
+-      "hrsh7th/cmp-cmdline",
+-      -- "hrsh7th/cmp-nvim-lsp-signature-help",
+-      {
+-        "L3MON4D3/LuaSnip",
+-        dependencies = {
+-          {
+-            "rafamadriz/friendly-snippets",
+-            "saadparwaiz1/cmp_luasnip",
+-          },
+-        },
+-      },
+-    },
+-    config = function()
+-      local cmp = require "cmp"
+-      local luasnip = require "luasnip"
+-      luasnip.config.setup {}
+-
+-      cmp.setup {
+-        snippet = {
+-          expand = function(args)
+-            luasnip.lsp_expand(args.body)
+-          end,
+-        },
+-        completion = {
+-          completeopt = "menu,menuone,noinsert,noselect",
+-        },
+-        window = {
+-          completion = cmp.config.window.bordered(),
+-          documentation = cmp.config.window.bordered(),
+-        },
+-        mapping = cmp.mapping.preset.insert {
+-          ["<C-n>"] = cmp.mapping.select_next_item(),
+-          ["<C-p>"] = cmp.mapping.select_prev_item(),
+-          ["<C-y>"] = cmp.mapping.confirm { select = true },
+-          ["<C-Space>"] = cmp.mapping.complete {},
+-          ["<C-l>"] = cmp.mapping(function()
+-            if luasnip.expand_or_locally_jumpable() then
+-              luasnip.expand_or_jump()
+-            end
+-          end, { "i", "s" }),
+-          ["<C-h>"] = cmp.mapping(function()
+-            if luasnip.locally_jumpable(-1) then
+-              luasnip.jump(-1)
+-            end
+-          end, { "i", "s" }),
+-        },
+-        sources = cmp.config.sources({
+-          {
+-            name = "lazydev",
+-            -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
+-            group_index = 0,
+-          },
+-          { name = "nvim_lsp" },
+-          { name = "luasnip" },
+-          { name = "path" },
+-          -- { name = "nvim_lsp_signature_help" },
+-        }, {
+-          { name = "buffer" },
+-        }),
+-      }
+-
+-      vim.diagnostic.config {
+-        -- update_in_insert = true,
+-        float = {
+-          focusable = false,
+-          style = "minimal",
+-          border = "rounded",
+-          -- source = "always",
+-          header = "",
+-          prefix = "",
+-        },
+-      }
+-    end,
+-  },
++  -- {
++  --   -- Autocompletion
++  --   -- "hrsh7th/nvim-cmp",
++  --   -- "yioneko/nvim-cmp",
++  --   -- branch = "perf-up",
++  --   "iguanacucumber/magazine.nvim",
++  --   name = "nvim-cmp", -- Otherwise highlighting gets messed up
++  --   event = "InsertEnter",
++  --   dependencies = {
++  --     "hrsh7th/cmp-nvim-lsp",
++  --     "hrsh7th/cmp-path",
++  --     "hrsh7th/cmp-buffer",
++  --     "hrsh7th/cmp-cmdline",
++  --     -- "hrsh7th/cmp-nvim-lsp-signature-help",
++  --     {
++  --       "L3MON4D3/LuaSnip",
++  --       dependencies = {
++  --         {
++  --           "rafamadriz/friendly-snippets",
++  --           "saadparwaiz1/cmp_luasnip",
++  --         },
++  --       },
++  --     },
++  --   },
++  --   config = function()
++  --     local cmp = require "cmp"
++  --     local luasnip = require "luasnip"
++  --     luasnip.config.setup {}
++  --
++  --     cmp.setup {
++  --       snippet = {
++  --         expand = function(args)
++  --           luasnip.lsp_expand(args.body)
++  --         end,
++  --       },
++  --       completion = {
++  --         completeopt = "menu,menuone,noinsert,noselect",
++  --       },
++  --       window = {
++  --         completion = cmp.config.window.bordered(),
++  --         documentation = cmp.config.window.bordered(),
++  --       },
++  --       mapping = cmp.mapping.preset.insert {
++  --         ["<C-n>"] = cmp.mapping.select_next_item(),
++  --         ["<C-p>"] = cmp.mapping.select_prev_item(),
++  --         ["<C-y>"] = cmp.mapping.confirm { select = true },
++  --         ["<C-Space>"] = cmp.mapping.complete {},
++  --         ["<C-l>"] = cmp.mapping(function()
++  --           if luasnip.expand_or_locally_jumpable() then
++  --             luasnip.expand_or_jump()
++  --           end
++  --         end, { "i", "s" }),
++  --         ["<C-h>"] = cmp.mapping(function()
++  --           if luasnip.locally_jumpable(-1) then
++  --             luasnip.jump(-1)
++  --           end
++  --         end, { "i", "s" }),
++  --       },
++  --       sources = cmp.config.sources({
++  --         {
++  --           name = "lazydev",
++  --           -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
++  --           group_index = 0,
++  --         },
++  --         { name = "nvim_lsp" },
++  --         { name = "luasnip" },
++  --         { name = "path" },
++  --         -- { name = "nvim_lsp_signature_help" },
++  --       }, {
++  --         { name = "buffer" },
++  --       }),
++  --     }
++  --
++  --     vim.diagnostic.config {
++  --       -- update_in_insert = true,
++  --       float = {
++  --         focusable = false,
++  --         style = "minimal",
++  --         border = "rounded",
++  --         -- source = "always",
++  --         header = "",
++  --         prefix = "",
++  --       },
++  --     }
++  --   end,
++  -- },
+ }
+diff --git a/lua/custom/plugins/color.lua b/lua/custom/plugins/color.lua
+index f98eb04..8de89c8 100644
+--- a/lua/custom/plugins/color.lua
++++ b/lua/custom/plugins/color.lua
+@@ -11,6 +11,9 @@ return {
+         comments = {},
+         conditionals = {},
+       },
++      integrations = {
++        blink_cmp = true,
++      },
+     },
+     init = function()
+       vim.cmd.colorscheme "catppuccin-mocha"
+diff --git a/lua/custom/plugins/conform.lua b/lua/custom/plugins/conform.lua
+index 4b02971..299a4fc 100644
+--- a/lua/custom/plugins/conform.lua
++++ b/lua/custom/plugins/conform.lua
+@@ -34,12 +34,13 @@ return { -- Autoformat
+     formatters_by_ft = {
+       lua = { "stylua" },
+       go = { "goimports", "gofumpt" },
++      json = { "jq" },
+ 
+       -- Conform can also run multiple formatters sequentially
+       -- python = { "isort", "black" },
+       --
+       -- You can use 'stop_after_first' to run the first available formatter from the list
+-      -- javascript = { "prettierd", "prettier", stop_after_first = true },
++      javascript = { "prettier", stop_after_first = true },
+     },
+   },
+ }
+diff --git a/lua/custom/plugins/gitsigns.lua b/lua/custom/plugins/gitsigns.lua
+index 72fc8c3..d66fbbb 100644
+--- a/lua/custom/plugins/gitsigns.lua
++++ b/lua/custom/plugins/gitsigns.lua
+@@ -17,24 +17,6 @@ return { -- Adds git related signs to the gutter, as well as utilities for manag
+         vim.keymap.set(mode, l, r, opts)
+       end
+ 
+-      -- -- Navigation
+-      -- map("n", "]h", function()
+-      --   if vim.wo.diff then
+-      --     vim.cmd.normal { "]h", bang = true }
+-      --   else
+-      --     gitsigns.nav_hunk "next"
+-      --   end
+-      -- end, { desc = "Jump to next git change" })
+-      --
+-      -- map("n", "[h", function()
+-      --   if vim.wo.diff then
+-      --     vim.cmd.normal { "[h", bang = true }
+-      --   else
+-      --     gitsigns.nav_hunk "prev"
+-      --   end
+-      -- end, { desc = "Jump to previous git change" })
+-      --
+-      -- Actions
+       -- visual mode
+       map("v", "<leader>hs", function()
+         gitsigns.stage_hunk { vim.fn.line ".", vim.fn.line "v" }
+@@ -42,21 +24,11 @@ return { -- Adds git related signs to the gutter, as well as utilities for manag
+       map("v", "<leader>hr", function()
+         gitsigns.reset_hunk { vim.fn.line ".", vim.fn.line "v" }
+       end, { desc = "reset git hunk" })
++
+       -- -- normal mode
+       map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "git [s]tage hunk" })
+       map("n", "<leader>hr", gitsigns.reset_hunk, { desc = "git [r]eset hunk" })
+-      map("n", "<leader>hS", gitsigns.stage_buffer, { desc = "git [S]tage buffer" })
+-      map("n", "<leader>hu", gitsigns.undo_stage_hunk, { desc = "git [u]ndo stage hunk" })
+-      map("n", "<leader>hR", gitsigns.reset_buffer, { desc = "git [R]eset buffer" })
+       map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "git [p]review hunk" })
+-      -- map("n", "<leader>hb", gitsigns.blame_line, { desc = "git [b]lame line" })
+-      -- map("n", "<leader>hd", gitsigns.diffthis, { desc = "git [d]iff against index" })
+-      -- map("n", "<leader>hD", function()
+-      -- 	gitsigns.diffthis("@")
+-      -- end, { desc = "git [D]iff against last commit" })
+-      -- -- Toggles
+-      -- map("n", "<leader>tb", gitsigns.toggle_current_line_blame, { desc = "[T]oggle git show [b]lame line" })
+-      -- map("n", "<leader>tD", gitsigns.toggle_deleted, { desc = "[T]oggle git show [D]eleted" })
+     end,
+   },
+ }
+diff --git a/lua/custom/plugins/harpoon.lua b/lua/custom/plugins/harpoon.lua
+index e56baba..b377787 100644
+--- a/lua/custom/plugins/harpoon.lua
++++ b/lua/custom/plugins/harpoon.lua
+@@ -13,14 +13,14 @@ return {
+     keys = function()
+       local keys = {
+         {
+-          "<M-a>",
++          "<leader>ha",
+           function()
+             require("harpoon"):list():add()
+           end,
+           desc = "Harpoon File",
+         },
+         {
+-          "<M-h>",
++          "<leader>ho",
+           function()
+             local harpoon = require "harpoon"
+             harpoon.ui:toggle_quick_menu(harpoon:list())
+diff --git a/lua/custom/plugins/lsp.lua b/lua/custom/plugins/lsp.lua
+index 51172d6..1bfda5e 100644
+--- a/lua/custom/plugins/lsp.lua
++++ b/lua/custom/plugins/lsp.lua
+@@ -7,14 +7,15 @@ return {
+       "williamboman/mason-lspconfig.nvim",
+       "WhoIsSethDaniel/mason-tool-installer.nvim",
+       { "j-hui/fidget.nvim", opts = {} },
+-      "hrsh7th/cmp-nvim-lsp",
++      -- "hrsh7th/cmp-nvim-lsp",
++      "saghen/blink.cmp",
++      "nvim-java/nvim-java",
+     },
+     config = function()
+       local capabilities = vim.lsp.protocol.make_client_capabilities()
+-      capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
++      -- capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+ 
+       local servers = {
+-        taplo = {},
+         ruff = {
+           cmd_env = { RUFF_TRACE = "messages" },
+           init_options = {
+@@ -37,14 +38,13 @@ return {
+           },
+         },
+         gopls = require "custom.lsp.go",
++        stylua = {},
+       }
+ 
+       require("mason").setup()
+ 
+       local ensure_installed = vim.tbl_keys(servers or {})
+-      vim.list_extend(ensure_installed, {
+-        "stylua", -- Used to format Lua code
+-      })
++
+       require("mason-tool-installer").setup { ensure_installed = ensure_installed }
+       require("mason-lspconfig").setup {
+         handlers = {
+@@ -53,7 +53,8 @@ return {
+             -- This handles overriding only values explicitly passed
+             -- by the server configuration above. Useful when disabling
+             -- certain features of an LSP (for example, turning off formatting for tsserver)
+-            server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
++            -- server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
++            server.capabilities = require("blink.cmp").get_lsp_capabilities(server.capabilities)
+ 
+             require("lspconfig")[server_name].setup(server)
+           end,
+@@ -61,17 +62,17 @@ return {
+       }
+     end,
+   },
+-  {
+-    "ray-x/lsp_signature.nvim",
+-    event = "VeryLazy",
+-    opts = {
+-      bind = true,
+-      handler_opts = {
+-        border = "rounded",
+-      },
+-    },
+-    config = function(_, opts)
+-      require("lsp_signature").setup(opts)
+-    end,
+-  },
++  -- {
++  --   "ray-x/lsp_signature.nvim",
++  --   event = "VeryLazy",
++  --   opts = {
++  --     -- bind = true,
++  --     handler_opts = {
++  --       border = "rounded",
++  --     },
++  --   },
++  --   config = function(_, opts)
++  --     require("lsp_signature").setup(opts)
++  --   end,
++  -- },
+ }
+diff --git a/lua/custom/plugins/markdown.lua b/lua/custom/plugins/markdown.lua
+new file mode 100644
+index 0000000..5c0811a
+--- /dev/null
++++ b/lua/custom/plugins/markdown.lua
+@@ -0,0 +1,12 @@
++-- install without yarn or npm
++return {
++  -- {
++  --   "iamcco/markdown-preview.nvim",
++  --   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
++  --   build = "cd app && yarn install",
++  --   init = function()
++  --     vim.g.mkdp_filetypes = { "markdown" }
++  --   end,
++  --   ft = { "markdown" },
++  -- },
++}
+diff --git a/lua/custom/plugins/neogit.lua b/lua/custom/plugins/neogit.lua
+index 5f819f9..25461b6 100644
+--- a/lua/custom/plugins/neogit.lua
++++ b/lua/custom/plugins/neogit.lua
+@@ -1,20 +1,22 @@
+ return {
+-  -- {
+-  --   "NeogitOrg/neogit",
+-  --   dependencies = {
+-  --     "nvim-lua/plenary.nvim", -- required
+-  --     "sindrets/diffview.nvim", -- optional - Diff integration
+-  --
+-  --     -- Only one of these is needed.
+-  --     "nvim-telescope/telescope.nvim", -- optional
+-  --     -- "ibhagwan/fzf-lua", -- optional
+-  --     -- "echasnovski/mini.pick", -- optional
+-  --   },
+-  --   config = function()
+-  --     local neogit = require "neogit"
+-  --     neogit.setup {}
+-  --
+-  --     vim.keymap.set("n", "<leader>g", "<cmd>Neogit<cr>")
+-  --   end,
+-  -- },
++  {
++    "NeogitOrg/neogit",
++    dependencies = {
++      "nvim-lua/plenary.nvim", -- required
++      "sindrets/diffview.nvim", -- optional - Diff integration
++      -- Only one of these is needed.
++      "nvim-telescope/telescope.nvim", -- optional
++      -- "ibhagwan/fzf-lua", -- optional
++      -- "echasnovski/mini.pick", -- optional
++    },
++    opts = {
++      disable_insert_on_commit = true,
++      commit_editor = {
++        staged_diff_split_kind = "vsplit",
++      },
++    },
++    config = function()
++      vim.keymap.set("n", "<leader>nt", "<cmd>Neogit<cr>", { desc = "open neogit" })
++    end,
++  },
+ }
+diff --git a/lua/custom/plugins/oil.lua b/lua/custom/plugins/oil.lua
+index ff67667..6075099 100644
+--- a/lua/custom/plugins/oil.lua
++++ b/lua/custom/plugins/oil.lua
+@@ -1,25 +1,27 @@
+ return {
+-  "stevearc/oil.nvim",
+-  dependencies = { "nvim-tree/nvim-web-devicons" },
+-  opts = {
+-    skip_confirm_for_simple_edits = true,
+-    use_default_keymaps = false,
+-    keymaps = {
+-      ["g?"] = "actions.show_help",
+-      ["<CR>"] = "actions.select",
+-      -- ["<C-c>"] = "actions.close",
+-      ["<leader>r"] = "actions.refresh",
+-      ["-"] = "actions.parent",
+-      ["_"] = "actions.open_cwd",
+-      ["`"] = "actions.cd",
+-      ["~"] = "actions.tcd",
+-      ["gs"] = "actions.change_sort",
+-      ["gx"] = "actions.open_external",
+-      ["g."] = "actions.toggle_hidden",
+-      ["g\\"] = "actions.toggle_trash",
+-    },
+-  },
+-  init = function()
+-    vim.keymap.set("n", "-", "<cmd>Oil<cr>", { desc = "Open Folder" })
+-  end,
++  -- {
++  --   "stevearc/oil.nvim",
++  --   dependencies = { "nvim-tree/nvim-web-devicons" },
++  --   opts = {
++  --     skip_confirm_for_simple_edits = true,
++  --     use_default_keymaps = false,
++  --     keymaps = {
++  --       ["g?"] = "actions.show_help",
++  --       ["<CR>"] = "actions.select",
++  --       -- ["<C-c>"] = "actions.close",
++  --       ["<leader>r"] = "actions.refresh",
++  --       ["-"] = "actions.parent",
++  --       ["_"] = "actions.open_cwd",
++  --       ["`"] = "actions.cd",
++  --       ["~"] = "actions.tcd",
++  --       ["gs"] = "actions.change_sort",
++  --       ["gx"] = "actions.open_external",
++  --       ["g."] = "actions.toggle_hidden",
++  --       ["g\\"] = "actions.toggle_trash",
++  --     },
++  --   },
++  --   init = function()
++  --     vim.keymap.set("n", "-", "<cmd>Oil<cr>", { desc = "Open Folder" })
++  --   end,
++  -- },
+ }
+diff --git a/lua/custom/plugins/persistence.lua b/lua/custom/plugins/persistence.lua
+index 1550716..cd54cdf 100644
+--- a/lua/custom/plugins/persistence.lua
++++ b/lua/custom/plugins/persistence.lua
+@@ -1,12 +1,37 @@
+ return {
+-  "folke/persistence.nvim",
+-  event = "BufReadPre",
+-  opts = {},
+-	-- stylua: ignore
+-	keys = {
+-		{ "<leader>qs", function() require("persistence").load() end, desc = "Restore Session" },
+-		{ "<leader>qS", function() require("persistence").select() end,desc = "Select Session" },
+-		{ "<leader>ql", function() require("persistence").load({ last = true }) end, desc = "Restore Last Session" },
+-		{ "<leader>qd", function() require("persistence").stop() end, desc = "Don't Save Current Session" },
+-	},
++  {
++    "folke/persistence.nvim",
++    event = "BufReadPre",
++    opts = {},
++    keys = {
++      {
++        "<leader>qs",
++        function()
++          require("persistence").load()
++        end,
++        desc = "Restore Session",
++      },
++      {
++        "<leader>qS",
++        function()
++          require("persistence").select()
++        end,
++        desc = "Select Session",
++      },
++      {
++        "<leader>ql",
++        function()
++          require("persistence").load { last = true }
++        end,
++        desc = "Restore Last Session",
++      },
++      {
++        "<leader>qd",
++        function()
++          require("persistence").stop()
++        end,
++        desc = "Don't Save Current Session",
++      },
++    },
++  },
+ }
+diff --git a/lua/custom/plugins/sleuth.lua b/lua/custom/plugins/sleuth.lua
+index 3bb9c95..18e68bd 100644
+--- a/lua/custom/plugins/sleuth.lua
++++ b/lua/custom/plugins/sleuth.lua
+@@ -1,4 +1,5 @@
+ return {
+   -- Detect tabstop and shiftwidth automatically
+   "tpope/vim-sleuth",
++  opt = {},
+ }
+diff --git a/lua/custom/plugins/snacks.lua b/lua/custom/plugins/snacks.lua
+index 0cdfdc0..b7cc400 100644
+--- a/lua/custom/plugins/snacks.lua
++++ b/lua/custom/plugins/snacks.lua
+@@ -1,89 +1,98 @@
+ return {
+-  "folke/snacks.nvim",
+-  priority = 1000,
+-  lazy = false,
+-
+-  ---@type snacks.Config
+-  opts = {
+-    bigfile = { enabled = true },
+-    notifier = {
+-      enabled = true,
+-      timeout = 3000,
+-    },
+-    quickfile = { enabled = true },
+-    statuscolumn = { enabled = true },
+-    -- words = { enabled = true },
+-    styles = {
+-      notification = {
+-        wo = { wrap = true }, -- Wrap notifications
+-      },
+-    },
+-  },
+-  keys = {
+-    {
+-      "<leader>un",
+-      function()
+-        Snacks.notifier.hide()
+-      end,
+-      desc = "Dismiss All Notifications",
+-    },
+-    {
+-      "<leader>bd",
+-      function()
+-        Snacks.bufdelete()
+-      end,
+-      desc = "Delete Buffer",
+-    },
+-    {
+-      "<leader>cR",
+-      function()
+-        Snacks.rename.rename_file()
+-      end,
+-      desc = "Rename File",
+-    },
+-    -- {
+-    --   "]]",
+-    --   function()
+-    --     Snacks.words.jump(vim.v.count1)
+-    --   end,
+-    --   desc = "Next Reference",
+-    --   mode = { "n", "t" },
+-    -- },
+-    -- {
+-    --   "[[",
+-    --   function()
+-    --     Snacks.words.jump(-vim.v.count1)
+-    --   end,
+-    --   desc = "Prev Reference",
+-    --   mode = { "n", "t" },
+-    -- },
+-  },
+-  init = function()
+-    vim.api.nvim_create_autocmd("User", {
+-      pattern = "VeryLazy",
+-
+-      callback = function()
+-        -- Setup some globals for debugging (lazy-loaded)
+-        _G.dd = function(...)
+-          Snacks.debug.inspect(...)
+-        end
+-        _G.bt = function()
+-          Snacks.debug.backtrace()
+-        end
+-        vim.print = _G.dd -- Override print to use snacks for `:=` command
+-
+-        -- Create some toggle mappings
+-        -- Snacks.toggle.option("spell", { name = "Spelling" }):map "<leader>us"
+-        -- Snacks.toggle.option("wrap", { name = "Wrap" }):map "<leader>uw"
+-        -- Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map "<leader>uL"
+-        Snacks.toggle.diagnostics():map "<leader>ud"
+-        Snacks.toggle.line_number():map "<leader>ul"
+-        -- Snacks.toggle
+-        -- .option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
+-        -- :map "<leader>uc"
+-        -- Snacks.toggle.treesitter():map "<leader>uT"
+-        Snacks.toggle.inlay_hints():map "<leader>uh"
+-      end,
+-    })
+-  end,
++  -- {
++  --   "folke/snacks.nvim",
++  --   priority = 1000,
++  --   lazy = false,
++  --
++  --   ---@type snacks.Config
++  --   opts = {
++  --     bigfile = { enabled = true },
++  --     notifier = {
++  --       enabled = true,
++  --       timeout = 3000,
++  --     },
++  --     quickfile = { enabled = true },
++  --     statuscolumn = { enabled = true },
++  --     -- words = { enabled = true },
++  --     styles = {
++  --       notification = {
++  --         wo = { wrap = true }, -- Wrap notifications
++  --       },
++  --     },
++  --   },
++  --   keys = {
++  --     {
++  --       "<leader>un",
++  --       function()
++  --         Snacks.notifier.hide()
++  --       end,
++  --       desc = "Dismiss All Notifications",
++  --     },
++  --     {
++  --       "<leader>uh",
++  --       function()
++  --         Snacks.notifier.show_history()
++  --       end,
++  --       desc = "Show Notifications History",
++  --     },
++  --     {
++  --       "<leader>bd",
++  --       function()
++  --         Snacks.bufdelete()
++  --       end,
++  --       desc = "Delete Buffer",
++  --     },
++  --     {
++  --       "<leader>cR",
++  --       function()
++  --         Snacks.rename.rename_file()
++  --       end,
++  --       desc = "Rename File",
++  --     },
++  --     -- {
++  --     --   "]]",
++  --     --   function()
++  --     --     Snacks.words.jump(vim.v.count1)
++  --     --   end,
++  --     --   desc = "Next Reference",
++  --     --   mode = { "n", "t" },
++  --     -- },
++  --     -- {
++  --     --   "[[",
++  --     --   function()
++  --     --     Snacks.words.jump(-vim.v.count1)
++  --     --   end,
++  --     --   desc = "Prev Reference",
++  --     --   mode = { "n", "t" },
++  --     -- },
++  --   },
++  --   init = function()
++  --     vim.api.nvim_create_autocmd("User", {
++  --       pattern = "VeryLazy",
++  --
++  --       callback = function()
++  --         -- Setup some globals for debugging (lazy-loaded)
++  --         _G.dd = function(...)
++  --           Snacks.debug.inspect(...)
++  --         end
++  --         _G.bt = function()
++  --           Snacks.debug.backtrace()
++  --         end
++  --         vim.print = _G.dd -- Override print to use snacks for `:=` command
++  --
++  --         -- Create some toggle mappings
++  --         -- Snacks.toggle.option("spell", { name = "Spelling" }):map "<leader>us"
++  --         -- Snacks.toggle.option("wrap", { name = "Wrap" }):map "<leader>uw"
++  --         -- Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map "<leader>uL"
++  --         Snacks.toggle.diagnostics():map "<leader>ud"
++  --         Snacks.toggle.line_number():map "<leader>ul"
++  --         -- Snacks.toggle
++  --         -- .option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
++  --         -- :map "<leader>uc"
++  --         -- Snacks.toggle.treesitter():map "<leader>uT"
++  --         -- Snacks.toggle.inlay_hints():map "<leader>uh"
++  --       end,
++  --     })
++  --   end,
++  -- },
+ }
+diff --git a/lua/custom/plugins/todo-comments.lua b/lua/custom/plugins/todo-comments.lua
+index 7cde755..718852a 100644
+--- a/lua/custom/plugins/todo-comments.lua
++++ b/lua/custom/plugins/todo-comments.lua
+@@ -1,9 +1,9 @@
+ return {
+-  {
+-    -- Highlight todo, notes, etc in comments
+-    "folke/todo-comments.nvim",
+-    event = "VimEnter",
+-    dependencies = { "nvim-lua/plenary.nvim" },
+-    opts = { signs = false },
+-  },
++  -- {
++  --   -- Highlight todo, notes, etc in comments
++  --   "folke/todo-comments.nvim",
++  --   event = "VimEnter",
++  --   dependencies = { "nvim-lua/plenary.nvim" },
++  --   opts = { signs = false },
++  -- },
+ }
+diff --git a/lua/custom/plugins/treesitter.lua b/lua/custom/plugins/treesitter.lua
+index b680223..9de75bd 100644
+--- a/lua/custom/plugins/treesitter.lua
++++ b/lua/custom/plugins/treesitter.lua
+@@ -21,6 +21,7 @@ return { -- Highlight, edit, and navigate code
+       "go",
+       "javascript",
+       "yaml",
++      "java",
+     },
+ 
+     -- Autoinstall languages that are not installed
+diff --git a/plugin/autocmds.lua b/plugin/autocmds.lua
+index c8d892e..1657faf 100644
+--- a/plugin/autocmds.lua
++++ b/plugin/autocmds.lua
+@@ -131,3 +131,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
+     map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+   end,
+ })
++
++-- vim.api.nvim_create_autocmd("FocusGained", {
++--   desc = "Reload files from disk when we focus vim",
++--   pattern = "*",
++--   command = "if getcmdwintype() == '' | checktime | endif",
++--   group = augroup "reload-file-focus",
++-- })
++--
++-- vim.api.nvim_create_autocmd("BufEnter", {
++--   desc = "Every time we enter an unmodified buffer, check if it changed on disk",
++--   pattern = "*",
++--   command = "if &buftype == '' && !&modified && expand('%') != '' | exec 'checktime ' . expand('<abuf>') | endif",
++--   group = augroup "reload-buf-enter",
++-- })
+diff --git a/plugin/keymaps.lua b/plugin/keymaps.lua
+index ff4b165..90eb710 100644
+--- a/plugin/keymaps.lua
++++ b/plugin/keymaps.lua
+@@ -87,3 +87,5 @@ map("n", "<C-w>+", "<nop>")
+ -- vim.keymap.set({ "n" }, "<Leader>k", function()
+ --   vim.lsp.buf.signature_help()
+ -- end, { silent = true, noremap = true, desc = "toggle signature" })
++
++map("n", "<leader>o", "<cmd>Explore<cr>", { desc = "open netrw" })
+diff --git a/plugin/netrw.vim b/plugin/netrw.vim
+new file mode 100644
+index 0000000..45d0558
+--- /dev/null
++++ b/plugin/netrw.vim
+@@ -0,0 +1,13 @@
++
++hi! link netrwMarkFile Search
++
++function! NetrwMapping()
++  nmap <buffer> <TAB> mf
++  nmap <buffer> <S-TAB> mF
++  nmap <buffer> <Leader><TAB> mu
++endfunction
++
++augroup netrw_mapping
++  autocmd!
++  autocmd filetype netrw call NetrwMapping()
++augroup END
+diff --git a/plugin/options.lua b/plugin/options.lua
+index 22d3c2c..dd05d62 100644
+--- a/plugin/options.lua
++++ b/plugin/options.lua
+@@ -8,10 +8,12 @@ opt.showmode = false
+ opt.pumblend = 10 -- Popup blend
+ opt.pumheight = 10 -- Maximum number of entries in a popup
+ opt.autowrite = true
++opt.autoread = true
+ opt.backup = false
+--- opt.colorcolumn = "80"
++opt.colorcolumn = "80"
+ opt.errorbells = false
+ opt.expandtab = true
++opt.cursorline = true
+ opt.inccommand = "split"
+ opt.incsearch = true
+ opt.hlsearch = false
+@@ -36,9 +38,9 @@ opt.undofile = true
+ opt.updatetime = 50
+ opt.wildmode = "longest:full,full" -- Command-line completion mode
+ opt.wrap = true
+-opt.hidden = true
++opt.hidden = false
+ 
+ -- Netrw
+ vim.g.netrw_keepdir = 0
+-vim.g.netrw_banner = 0
++-- vim.g.netrw_banner = 0
+ vim.g.netrw_localcopydircmd = "cp -r"
