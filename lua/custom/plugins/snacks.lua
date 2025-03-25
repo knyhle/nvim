@@ -20,6 +20,13 @@ return {
       desc = "Dismiss All Notifications",
     },
     {
+      "<leader>uh",
+      function()
+        Snacks.notifier.show_history()
+      end,
+      desc = "Show all Notifications",
+    },
+    {
       "<leader>bd",
       function()
         Snacks.bufdelete()
@@ -44,7 +51,7 @@ return {
 
         -- Create some toggle mappings
         Snacks.toggle.diagnostics():map "<leader>ud"
-        Snacks.toggle.inlay_hints():map "<leader>uh"
+        -- Snacks.toggle.inlay_hints():map "<leader>uh"
       end,
     })
   end,

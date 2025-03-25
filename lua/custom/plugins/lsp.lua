@@ -16,9 +16,6 @@ return {
     },
 
     config = function()
-      -- require("conform").setup {
-      --   formatters_by_ft = {},
-      -- }
       local cmp = require "cmp"
       local cmp_lsp = require "cmp_nvim_lsp"
       local capabilities =
@@ -29,7 +26,6 @@ return {
       require("mason-lspconfig").setup {
         ensure_installed = {
           "lua_ls",
-          "rust_analyzer",
           "gopls",
         },
         handlers = {
@@ -38,29 +34,53 @@ return {
               capabilities = capabilities,
             }
           end,
-
-          zls = function()
-            local lspconfig = require "lspconfig"
-            lspconfig.zls.setup {
-              root_dir = lspconfig.util.root_pattern(".git", "build.zig", "zls.json"),
+          ["gopls"] = function()
+            require("lspconfig").gopls.setup {
               settings = {
-                zls = {
-                  enable_inlay_hints = true,
-                  enable_snippets = true,
-                  warn_style = true,
+                gopls = {
+                  gofumpt = true,
+                  codelenses = {
+                    gc_details = false,
+                    generate = true,
+                    regenerate_cgo = true,
+                    run_govulncheck = true,
+                    test = true,
+                    tidy = true,
+                    upgrade_dependency = true,
+                    vendor = true,
+                  },
+                  hints = {
+                    assignVariableTypes = true,
+                    compositeLiteralFields = true,
+                    compositeLiteralTypes = true,
+                    constantValues = true,
+                    functionTypeParameters = true,
+                    parameterNames = true,
+                    rangeVariableTypes = true,
+                  },
+                  analyses = {
+                    -- fieldalignment = true,
+                    nilness = true,
+                    unusedparams = true,
+                    unusedwrite = true,
+                    useany = true,
+                  },
+                  -- usePlaceholders = true,
+                  completeUnimported = true,
+                  staticcheck = true,
+                  directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
+                  semanticTokens = true,
                 },
               },
             }
-            vim.g.zig_fmt_parse_errors = 0
-            vim.g.zig_fmt_autosave = 0
           end,
+
           ["lua_ls"] = function()
             local lspconfig = require "lspconfig"
             lspconfig.lua_ls.setup {
               capabilities = capabilities,
               settings = {
                 Lua = {
-                  runtime = { version = "Lua 5.1" },
                   diagnostics = {
                     globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
                   },

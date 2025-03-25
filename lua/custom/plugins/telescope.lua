@@ -22,14 +22,15 @@ return { -- Fuzzy Finder (files, lsp, etc)
     local builtin = require "telescope.builtin"
     vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
     vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
-    vim.keymap.set("n", "<leader>sg", function()
-      local ok, search_term = pcall(vim.fn.input, "Grep > ")
-      -- If pcall fails or input is empty, return early
-      if not ok or search_term == "" then
-        return
-      end
-      builtin.grep_string { search = search_term }
-    end, { desc = "[S]earch by [G]rep" })
+    vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+    -- vim.keymap.set("n", "<leader>sg", function()
+    -- local ok, search_term = pcall(vim.fn.input, "Grep > ")
+    -- -- If pcall fails or input is empty, return early
+    -- if not ok or search_term == "" then
+    --   return
+    -- end
+    -- builtin.grep_string { search = search_term }
+    -- end, { desc = "[S]earch by [G]rep" })
     vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
     vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
     vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
