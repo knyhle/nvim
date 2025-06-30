@@ -37,6 +37,7 @@ opt.updatetime = 50
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.wrap = true
 -- opt.hidden = true
+vim.opt.cursorline = true
 
 -- Netrw
 -- vim.g.netrw_keepdir = 0
