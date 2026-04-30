@@ -1,7 +1,6 @@
 return { -- Fuzzy Finder (files, lsp, etc)
   "nvim-telescope/telescope.nvim",
   event = "VimEnter",
-  branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim" },
@@ -24,12 +23,12 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
     vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
     -- vim.keymap.set("n", "<leader>sg", function()
-    -- local ok, search_term = pcall(vim.fn.input, "Grep > ")
-    -- -- If pcall fails or input is empty, return early
-    -- if not ok or search_term == "" then
-    --   return
-    -- end
-    -- builtin.grep_string { search = search_term }
+    --   local ok, search_term = pcall(vim.fn.input, "Grep > ")
+    --   -- If pcall fails or input is empty, return early
+    --   if not ok or search_term == "" then
+    --     return
+    --   end
+    --   builtin.grep_string { search = search_term }
     -- end, { desc = "[S]earch by [G]rep" })
     vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
     vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
