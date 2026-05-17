@@ -8,7 +8,11 @@ require("oil").setup({
 		-- Border options: "none", "single", "double", "rounded", "shadow"
 		border = "rounded",
 	},
+	keymaps = {
+		["<C-h>"] = false,
+		["<C-l>"] = false,
+	},
 })
 
-vim.keymap.set("n", "<leader>o", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 

@@ -246,8 +246,8 @@ do
   -- See `:help telescope.builtin`
   local builtin = require 'telescope.builtin'
   -- vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-  vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-  vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+  -- vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
+  vim.keymap.set('n', '<leader><leader>', builtin.find_files, { desc = '[S]earch [F]iles' })
   -- vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
   -- vim.keymap.set({ 'n', 'v' }, '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
   vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
@@ -255,7 +255,7 @@ do
   vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
   vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
   -- vim.keymap.set('n', '<leader>sc', builtin.commands, { desc = '[S]earch [C]ommands' })
-  vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+  -- vim.keymap.set('n', '<leader><leader>', builtin.git_files, { desc = '[ ] Find git files' })
 
   -- Add Telescope-based LSP pickers when an LSP attaches to a buffer.
   -- If you later switch picker plugins, this is where to update these mappings.
@@ -372,7 +372,6 @@ do
             rangeVariableTypes = true,
           },
           analyses = {
-            fieldalignment = true,
             nilness = true,
             unusedparams = true,
             unusedwrite = true,
@@ -381,7 +380,7 @@ do
           -- usePlaceholders = true,
           completeUnimported = true,
           staticcheck = true,
-          directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
+          directoryFilters = { '-.git', '-.vscode', '-.idea', '-.vscode-test', '-node_modules' },
           semanticTokens = true,
         },
       },
@@ -474,9 +473,10 @@ do
     format_on_save = function(bufnr)
       -- You can specify filetypes to autoformat on save here:
       local enabled_filetypes = {
-        -- lua = true,
+        lua = true,
         -- python = true,
         go = true,
+        proto = true,
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
         return { timeout_ms = 500 }
@@ -489,6 +489,7 @@ do
     },
     -- You can also specify external formatters in here.
     formatters_by_ft = {
+      proto = { 'buf' }, -- Or use "clang_format"
       -- rust = { 'rustfmt' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
@@ -520,6 +521,12 @@ do
       preset = 'default',
     },
 
+    documentation = {
+      window = {
+        border = 'rounded',
+      },
+    },
+
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- Adjusts spacing to ensure icons are aligned
@@ -527,7 +534,13 @@ do
     },
 
     completion = {
-      documentation = { auto_show = false, auto_show_delay_ms = 500 },
+      menu = {
+        border = 'rounded',
+      },
+      documentation = {
+        auto_show = false,
+        auto_show_delay_ms = 500,
+      },
     },
 
     sources = {
