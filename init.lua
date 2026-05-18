@@ -521,12 +521,6 @@ do
       preset = 'default',
     },
 
-    documentation = {
-      window = {
-        border = 'rounded',
-      },
-    },
-
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- Adjusts spacing to ensure icons are aligned
@@ -538,8 +532,11 @@ do
         border = 'rounded',
       },
       documentation = {
-        auto_show = false,
-        auto_show_delay_ms = 500,
+        auto_show = true,
+        auto_show_delay_ms = 200,
+        window = {
+          border = 'rounded', -- Optional: 'single', 'double', 'rounded', etc.
+        },
       },
     },
 
