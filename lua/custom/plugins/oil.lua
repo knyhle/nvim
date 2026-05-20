@@ -1,18 +1,19 @@
-
 vim.pack.add { 'https://github.com/stevearc/oil.nvim' }
 
-require("oil").setup({
-	default_file_explorer = true,
-	skip_confirm_for_simple_edits = true,
-	float = {
-		-- Border options: "none", "single", "double", "rounded", "shadow"
-		border = "rounded",
-	},
-	keymaps = {
-		["<C-h>"] = false,
-		["<C-l>"] = false,
-	},
-})
+require('oil').setup {
+  default_file_explorer = true,
+  skip_confirm_for_simple_edits = true,
+  float = {
+    -- Border options: "none", "single", "double", "rounded", "shadow"
+    border = 'rounded',
+  },
+  confirmation = {
+    border = 'rounded',
+  },
+  keymaps = {
+    ['<C-h>'] = false,
+    ['<C-l>'] = false,
+  },
+}
 
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-
+vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
