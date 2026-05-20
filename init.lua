@@ -24,7 +24,9 @@ do
   --  See `:help 'clipboard'`
   vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 
+  vim.o.guicursor = ''
   vim.o.breakindent = true
+  vim.o.colorcolumn = '120'
   vim.o.undofile = true
   vim.o.ignorecase = true
   vim.o.smartcase = true
@@ -53,8 +55,15 @@ do
   vim.diagnostic.config {
     update_in_insert = false,
     severity_sort = true,
-    float = { border = 'rounded', source = 'if_many' },
-    underline = { severity = { min = vim.diagnostic.severity.WARN } },
+    float = {
+      border = 'rounded',
+      source = 'if_many',
+    },
+    underline = {
+      severity = {
+        min = vim.diagnostic.severity.WARN,
+      },
+    },
 
     -- Can switch between these as you prefer
     virtual_text = true, -- Text shows up at the end of the line
@@ -255,7 +264,7 @@ do
   -- See `:help telescope.builtin`
   local builtin = require 'telescope.builtin'
   -- vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-  -- vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
+  vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
   vim.keymap.set('n', '<leader><leader>', builtin.find_files, { desc = '[S]earch [F]iles' })
   -- vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
   -- vim.keymap.set({ 'n', 'v' }, '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
@@ -303,6 +312,7 @@ end
 do
   vim.pack.add { gh 'j-hui/fidget.nvim' }
   require('fidget').setup {}
+
   vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
     callback = function(event)
@@ -311,37 +321,14 @@ do
         vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
       end
 
-      map('<leader>cr', vim.lsp.buf.rename, '[R]e[n]ame')
-      map('<leader>ca', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
+      map('<leader>cr', vim.lsp.buf.rename, 'Code Rename')
+      map('<leader>ca', vim.lsp.buf.code_action, 'Code Action', { 'n', 'x' })
 
       -- WARN: This is not Goto Definition, this is Goto Declaration.
       --  For example, in C this would take you to the header.
       map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
       local client = vim.lsp.get_client_by_id(event.data.client_id)
-      if client and client:supports_method('textDocument/documentHighlight', event.buf) then
-        local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
-        vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-          buffer = event.buf,
-          group = highlight_augroup,
-          callback = vim.lsp.buf.document_highlight,
-        })
-
-        vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
-          buffer = event.buf,
-          group = highlight_augroup,
-          callback = vim.lsp.buf.clear_references,
-        })
-
-        vim.api.nvim_create_autocmd('LspDetach', {
-          group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
-          callback = function(event2)
-            vim.lsp.buf.clear_references()
-            vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
-          end,
-        })
-      end
-
       -- The following code creates a keymap to toggle inlay hints in your
       -- code, if the language server you are using supports them
       -- This may be unwanted, since they displace some of your code
@@ -483,7 +470,6 @@ do
       -- You can specify filetypes to autoformat on save here:
       local enabled_filetypes = {
         lua = true,
-        -- python = true,
         go = true,
         proto = true,
       }
@@ -498,7 +484,7 @@ do
     },
     -- You can also specify external formatters in here.
     formatters_by_ft = {
-      proto = { 'buf' }, -- Or use "clang_format"
+      proto = { 'buf' },
       -- rust = { 'rustfmt' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
@@ -544,7 +530,7 @@ do
         auto_show = true,
         auto_show_delay_ms = 200,
         window = {
-          border = 'rounded', -- Optional: 'single', 'double', 'rounded', etc.
+          border = 'rounded',
         },
       },
     },
@@ -564,8 +550,23 @@ end
 -- Parser installation, syntax highlighting, folds, indentation
 -- ============================================================
 do
-  vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
-  local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'go' }
+  vim.pack.add {
+    { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' },
+  }
+  local parsers = {
+    'bash',
+    'c',
+    'diff',
+    'html',
+    'lua',
+    'luadoc',
+    'markdown',
+    'markdown_inline',
+    'query',
+    'vim',
+    'vimdoc',
+    'go',
+  }
   require('nvim-treesitter').install(parsers)
 
   ---@param buf integer
@@ -578,8 +579,8 @@ do
 
     -- Enable treesitter based folds
     -- For more info on folds see `:help folds`
-    -- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-    -- vim.wo.foldmethod = 'expr'
+    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    vim.wo.foldmethod = 'expr'
 
     -- Check if treesitter indentation is available for this language, and if so enable it
     -- in case there is no indent query, the indentexpr will fallback to the vim's built in one
