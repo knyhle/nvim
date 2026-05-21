@@ -31,7 +31,7 @@ do
   vim.o.ignorecase = true
   vim.o.smartcase = true
   vim.o.signcolumn = 'yes'
-  vim.o.updatetime = 250
+  vim.o.updatetime = 200
   vim.o.timeoutlen = 300
   vim.o.splitright = true
   vim.o.splitbelow = true
@@ -174,30 +174,9 @@ do
 
   if vim.g.have_nerd_font then vim.pack.add { gh 'nvim-tree/nvim-web-devicons' } end
 
-  vim.pack.add { gh 'lewis6991/gitsigns.nvim' }
-  require('gitsigns').setup {
-    signs = {
-      add = { text = '+' }, ---@diagnostic disable-line: missing-fields
-      change = { text = '~' }, ---@diagnostic disable-line: missing-fields
-      delete = { text = '_' }, ---@diagnostic disable-line: missing-fields
-      topdelete = { text = '‾' }, ---@diagnostic disable-line: missing-fields
-      changedelete = { text = '~' }, ---@diagnostic disable-line: missing-fields
-    },
+  vim.pack.add {
+    { src = 'https://github.com/catppuccin/nvim', name = 'catppuccin' },
   }
-
-  -- [[ Colorscheme ]]
-  vim.pack.add { gh 'folke/tokyonight.nvim' }
-  ---@diagnostic disable-next-line: missing-fields
-  require('tokyonight').setup {
-    styles = {
-      comments = { italic = false }, -- Disable italics in comments
-      keywords = { italic = false },
-      functions = { italic = false },
-      variables = { italic = false },
-    },
-  }
-
-  vim.pack.add { { src = 'https://github.com/catppuccin/nvim', name = 'catppuccin' } }
   require('catppuccin').setup {
     no_italic = true,
     no_bold = true,
@@ -224,11 +203,7 @@ do
   }
   require('mini.surround').setup()
 
-  -- Simple and easy statusline.
-  --  You could remove this setup call if you don't like it,
-  --  and try some other statusline plugin
   local statusline = require 'mini.statusline'
-  -- Set `use_icons` to true if you have a Nerd Font
   statusline.setup { use_icons = vim.g.have_nerd_font }
 
   -- You can configure sections in the statusline by overriding their
@@ -421,7 +396,7 @@ do
       ---@type lspconfig.settings.lua_ls
       settings = {
         Lua = {
-          format = { enable = false }, -- Disable formatting (formatting is done by stylua)
+          format = { enable = false },
         },
       },
     },
@@ -437,13 +412,6 @@ do
   -- Automatically install LSPs and related tools to stdpath for Neovim
   require('mason').setup {}
 
-  -- Ensure the servers and tools above are installed
-  --
-  -- To check the current status of installed tools and/or manually install
-  -- other tools, you can run
-  --    :Mason
-  --
-  -- You can press `g?` for help in this menu.
   local ensure_installed = vim.tbl_keys(servers or {})
   vim.list_extend(ensure_installed, {
     -- You can add other tools here that you want Mason to install
