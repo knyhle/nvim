@@ -52,3 +52,12 @@ map('n', '<C-w>-', '<nop>')
 map('n', '<C-w>+', '<nop>')
 
 map('n', '<leader>ql', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+vim.keymap.set('n', '<leader>bo', function()
+  local bufs = vim.api.nvim_list_bufs()
+  local current_buf = vim.api.nvim_get_current_buf()
+
+  for _, bufnr in ipairs(bufs) do
+    if bufnr ~= current_buf and vim.api.nvim_buf_is_loaded(bufnr) then vim.api.nvim_buf_delete(bufnr, { force = false }) end
+  end
+end, { desc = 'Close all buffers except current' })
