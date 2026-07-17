@@ -1,4 +1,3 @@
-
 -- [[ Basic Keymaps ]]
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
@@ -12,4 +11,3 @@ vim.keymap.set('n', '<leader>q', ':quit<CR>')
 vim.keymap.set('n', '<leader>o', ':update<CR>:source<CR>')
 
 vim.keymap.set('n', '<leader>tn', ':tabnew<CR>')
-
