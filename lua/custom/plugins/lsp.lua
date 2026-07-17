@@ -76,6 +76,4 @@ for name, server in pairs(servers) do
   vim.lsp.enable(name)
 end
 
-vim.cmd 'set completeopt+=noselect'
-
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
