@@ -18,11 +18,11 @@ do
   vim.o.mouse = 'a'
   vim.o.showmode = false
 
-  -- Sync clipboard between OS and Neovim.
-  --  Schedule the setting after `UiEnter` because it can increase startup-time.
-  --  Remove this option if you want your OS clipboard to remain independent.
-  --  See `:help 'clipboard'`
-  vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
+  -- -- Sync clipboard between OS and Neovim.
+  -- --  Schedule the setting after `UiEnter` because it can increase startup-time.
+  -- --  Remove this option if you want your OS clipboard to remain independent.
+  -- --  See `:help 'clipboard'`
+  -- vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 
   vim.o.guicursor = ''
   vim.o.breakindent = true
@@ -49,6 +49,7 @@ do
 
   -- [[ Basic Keymaps ]]
   vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+  vim.keymap.set('n', '<leader>w', '<cmd>write<CR>')
 
   -- Diagnostic Config & Keymaps
   --  See `:help vim.diagnostic.Opts`
@@ -169,8 +170,8 @@ local function gh(repo) return 'https://github.com/' .. repo end
 -- guess-indent, gitsigns, which-key, colorscheme, todo-comments, mini modules
 -- ============================================================
 do
-  vim.pack.add { gh 'NMAC427/guess-indent.nvim' }
-  require('guess-indent').setup {}
+  -- vim.pack.add { gh 'NMAC427/guess-indent.nvim' }
+  -- require('guess-indent').setup {}
 
   if vim.g.have_nerd_font then vim.pack.add { gh 'nvim-tree/nvim-web-devicons' } end
 
@@ -454,10 +455,11 @@ do
     },
     -- You can also specify external formatters in here.
     formatters_by_ft = {
-      proto = { 'buf' },
       -- rust = { 'rustfmt' },
       -- Conform can also run multiple formatters sequentially
-      -- python = { "isort", "black" },
+      bash = { 'shfmt' },
+      python = { 'isort', 'black' },
+      proto = { 'buf' },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
