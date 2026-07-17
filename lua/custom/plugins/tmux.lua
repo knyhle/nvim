@@ -1,3 +1,4 @@
+
 vim.pack.add { 'https://github.com/alexghergh/nvim-tmux-navigation' }
 
 local tmux_nav = require 'nvim-tmux-navigation'
