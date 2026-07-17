@@ -14,9 +14,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     map('<leader>cr', vim.lsp.buf.rename, 'Code Rename')
     map('<leader>ca', vim.lsp.buf.code_action, 'Code Action', { 'n', 'x' })
-
-    local client = vim.lsp.get_client_by_id(event.data.client_id)
-    if client:supports_method 'textDocument/completion' then vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true }) end
   end,
 })
 

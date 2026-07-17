@@ -27,7 +27,7 @@ do
       },
     },
     sources = {
-      default = { 'lsp', 'buffer', 'path' },
+      default = { 'lsp', 'path', 'buffer' },
     },
     -- fuzzy = { implementation = 'lua' },
     signature = { enabled = true },

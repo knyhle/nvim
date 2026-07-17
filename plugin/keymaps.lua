@@ -10,4 +10,10 @@ vim.keymap.set('n', '<leader>w', ':write<CR>')
 vim.keymap.set('n', '<leader>q', ':quit<CR>')
 vim.keymap.set('n', '<leader>o', ':update<CR>:source<CR>')
 
-vim.keymap.set('n', '<leader>tn', ':tabnew<CR>')
+vim.keymap.set('n', '<leader>tn', ':tabnew %<CR>')
+vim.keymap.set('n', '<leader>td', ':tabclose<CR>')
+vim.keymap.set('n', '<leader>to', ':tabonly<CR>')
+vim.keymap.set('n', '<left>', '<cmd>tabprevious<cr>', { desc = 'Previous Tab' })
+vim.keymap.set('n', '<right>', '<cmd>tabnext<cr>', { desc = 'Next Tab' })
+
+vim.keymap.set('n', '<leader>cd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
