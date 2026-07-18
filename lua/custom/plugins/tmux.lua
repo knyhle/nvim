@@ -1,6 +1,7 @@
 vim.pack.add { 'https://github.com/alexghergh/nvim-tmux-navigation' }
 
 local tmux_nav = require 'nvim-tmux-navigation'
+tmux_nav.setup {}
 
 vim.keymap.set('n', '<C-h>', tmux_nav.NvimTmuxNavigateLeft)
 vim.keymap.set('n', '<C-j>', tmux_nav.NvimTmuxNavigateDown)
