@@ -50,6 +50,7 @@ local servers = {
           unusedparams = true,
           unusedwrite = true,
           useany = true,
+          ST1003 = false,
         },
         -- usePlaceholders = true,
         completeUnimported = true,
