@@ -77,3 +77,13 @@ vim.api.nvim_create_autocmd('FileType', {
     })
   end,
 })
+
+vim.api.nvim_create_autocmd({ 'BufWritePre', 'FileWritePre' }, {
+  desc = "Automatically create parent directories if they don't exist",
+  pattern = '*',
+  callback = function()
+    local directory = vim.fn.expand '<afile>:p:h'
+    -- Ignore URIs (like protocol://) and check if directory already exists
+    if not directory:match '^%w+://' and vim.fn.isdirectory(directory) == 0 then vim.fn.mkdir(directory, 'p') end
+  end,
+})
