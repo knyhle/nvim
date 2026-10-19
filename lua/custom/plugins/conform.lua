@@ -14,6 +14,7 @@ require('conform').setup {
       tf = true,
       terraform = true,
       ['terraform-vars'] = true,
+      hcl = true,
     }
     if enabled_filetypes[vim.bo[bufnr].filetype] then
       return { timeout_ms = 500 }
@@ -28,6 +29,7 @@ require('conform').setup {
     proto = { 'buf' },
     terraform = { 'terraform_fmt' },
     tf = { 'terraform_fmt' },
+    hcl = { 'terraform_fmt' },
     sh = { 'shfmt' },
     bash = { 'shfmt' },
     ['terraform-vars'] = { 'terraform_fmt' },
