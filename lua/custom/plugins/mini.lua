@@ -30,6 +30,8 @@ vim.keymap.set('n', '<leader>sg', ':Pick grep_live<CR>')
 vim.keymap.set('n', '<leader><leader>', ':Pick files tool="git"<CR>')
 
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Go to Definition' })
+vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, { desc = 'Go to Type Definition' })
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { desc = 'Go to Implementation' })
 vim.keymap.set('n', 'gr', function() mini_extra.pickers.lsp { scope = 'references' } end, { desc = 'Find references' })
 vim.keymap.set('n', '<leader>ds', function() mini_extra.pickers.lsp { scope = 'document_symbol' } end, { desc = 'Document Symbols' })
 vim.keymap.set('n', '<leader>ws', function() mini_extra.pickers.lsp { scope = 'workspace_symbol_live' } end, { desc = 'Workspace Symbols' })

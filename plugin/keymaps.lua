@@ -46,8 +46,4 @@ map({ 'n', 'x' }, '<Down>', "v:count == 0 ? 'gj' : 'j'", { desc = 'Down', expr =
 map({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', expr = true, silent = true })
 map({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', expr = true, silent = true })
 
--- Clear search, diff update and redraw
--- taken from runtime/lua/_editor.lua
-map('n', '<M-r>', function() vim.cmd 'nohlsearch|diffupdate|LspRestart|normal! <C-L><CR>' end, { desc = 'Redraw / Clear hlsearch / Diff Update' })
-
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { silent = true })

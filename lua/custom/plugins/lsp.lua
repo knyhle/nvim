@@ -62,6 +62,9 @@ local servers = {
   },
   pyright = {},
   stylua = {}, -- Used to format Lua code
+  buf = {},
+  terraform = {},
+  shfmt = {},
 }
 
 require('mason').setup {}
@@ -74,4 +77,4 @@ for name, server in pairs(servers) do
   vim.lsp.enable(name)
 end
 
-vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
+-- vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)

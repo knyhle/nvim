@@ -63,4 +63,13 @@ vim.diagnostic.config {
   },
 }
 
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+  -- Use a clean border style which often fixes markdown rendering artifacts
+  border = 'rounded',
+  -- Alternatively, if your markdown plugin is leaking syntax,
+  -- you can explicitly force the filetype of the hover window to markdown
+  -- so Neovim conceals the backticks automatically.
+  focusable = true,
+})
+
 require 'custom.plugins'
